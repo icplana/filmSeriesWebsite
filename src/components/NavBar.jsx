@@ -3,6 +3,7 @@ import { creatorsData } from "../helpers/getAllCreators"
 import { seriesData } from "../helpers/getAllSeries"
 import { eventsData } from "../helpers/getAllEvents"
 import { charactersData } from "../helpers/getAllCharacters"
+import { Link } from "react-router-dom"
 
 
 export const NavBar = () => {
@@ -14,7 +15,7 @@ export const NavBar = () => {
     <header className="bg-gradient-to-b from-sky-800 to-sky-600 border flex min-w-screen justify-evenly md:px-5 py-4">
 
       <div>
-        Todos los comics
+        <Link to="/allcomics" >Todos los comics</Link>
       </div>
 
       <div>
