@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router";
 import { NavBar } from "./components/NavBar";
 import { HomeLanding } from "./pages/HomeLanding";
+import { SeriesInfo } from "./pages/SeriesInfo";
 
 
 export function App() {
@@ -11,6 +12,7 @@ export function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={ <HomeLanding /> } />
+        <Route path="/seriesinfo" element={ <SeriesInfo /> } />
       </Routes>
     </div>
   )
