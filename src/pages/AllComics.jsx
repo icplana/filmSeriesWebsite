@@ -1,24 +1,37 @@
-import { useRef, useState } from "react"
-import { getAllComicsBySteps } from "../helpers/getAllComics"
+import { useEffect, useRef, useState } from "react"
 import { ComicPreview } from "../components/ComicPreview"
+import { baseUrl, publicKey } from "../helpers/APIdata"
 
-const data = await getAllComicsBySteps()
-const comics = data.data.results
+
+
 
 export const AllComics = () => {
 
     const [offset, setOffset] = useState(0)
     const [limit, setLimit] = useState(20)
+    const [comics, setComics] = useState([])
+    
 
     const showPerPage = useRef()
-
-    console.log(comics)
+    
+    useEffect(() => {
+    
+    
+      fetch( `${ baseUrl }v1/public/comics?apikey=${ publicKey }&limit=${ limit }&offset=${ offset }` )
+        .then( resp => resp.json() )
+        .then( data => {
+            setComics(data.data.results);
+            
+            console.log(data)
+        })
+   }, [ offset, limit ])
+    
    
   return (
     <div>
         <div className="flex flex-wrap gap-2 justify-center">
             {
-                comics.map( comic => {
+                comics?.map( comic => {
                     return(
                         <ComicPreview key={ comic.id } comic={ comic } />
                     )
