@@ -6,9 +6,28 @@ export const ComicPreview = ({ comic }) => {
         {
             ( comic.images[0] )
             ? <img src={ comic.images[0].path + '.' + comic.images[0].extension } alt="" />
-            : <img src="../../public/assets/images/image-not-found.png" alt="No image" className="w-full"/>
+            : <img src="../../assets/images/image-not-found.png" alt="No image" className="w-full"/>
         }
-        <p>{ comic.title }</p>
+        <h3>{ comic.title }</h3>
+
+        <p>{ comic.description }</p>
+
+        <p>
+          {
+            comic.creators.items.length > 0
+            ?'Creators:'
+            :''
+          }
+          <ul>          
+          {
+            comic.creators.items.map( creator => (
+              <li>
+                { creator.name } ({ creator.role })
+              </li>
+            ))
+          }
+          </ul>
+        </p>
         
 
     </div>

@@ -17,21 +17,24 @@ export const AllComics = () => {
     useEffect(() => {
     
     
-      fetch( `${ baseUrl }v1/public/comics?apikey=${ publicKey }&limit=${ limit }&offset=${ offset }` )
+      fetch( `${ baseUrl }v1/public/comics?limit=${ limit }&offset=${ offset }&apikey=${ publicKey }` )
         .then( resp => resp.json() )
         .then( data => {
-            setComics(data.data.results);
+            setComics(data.data);
             
             console.log(data)
         })
    }, [ offset, limit ])
     
    
-  return (
-    <div>
+  return (      
+      <div>
+
+        <p>Actualmente hay un total de { comics.total } comics</p>
+
         <div className="flex flex-wrap gap-2 justify-center">
             {
-                comics?.map( comic => {
+                comics.results?.map( comic => {
                     return(
                         <ComicPreview key={ comic.id } comic={ comic } />
                     )
