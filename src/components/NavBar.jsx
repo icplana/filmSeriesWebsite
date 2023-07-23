@@ -26,7 +26,7 @@ export const NavBar = () => {
 
 
       <div onMouseEnter={ showBuscador } onMouseLeave={ hideBuscador }>
-        Buscador
+        <Link to="/search">Buscador</Link>
         <ul ref={ buscador } className="hidden">
           <li>Personajes</li>
           <li>Cómics</li>
