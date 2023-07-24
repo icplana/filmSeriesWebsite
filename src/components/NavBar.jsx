@@ -3,12 +3,14 @@ import { Link, NavLink } from "react-router-dom"
 import { useContext, useRef } from "react"
 import { searchTypes } from "../helpers/APIdata"
 import { LimitOffsetContext } from "../contexts/limit-offset/LimitOffsetContext"
+import { AllNavbar } from "./AllNavbar"
 
 
 export const NavBar = () => {
 
-  const all = useRef()
+ 
   const search = useRef()
+  const all = useRef()
 
   const { setLoading } = useContext( LimitOffsetContext )
   
@@ -24,24 +26,11 @@ export const NavBar = () => {
 
       <div><Link to="/">Home</Link></div>
 
-      <div onMouseEnter={ showAll } onMouseLeave={ hideAll } >
+      <div onMouseEnter={ showAll } onMouseLeave={ hideAll }>
       <span>All</span>
-        <ul ref={ all } className="absolute hidden bg-gradient-to-b from-sky-800 to-sky-600 px-2 py-1 rounded-sm">
-
-          {
-            searchTypes.map( type => (
-              <li key={ type.singular }>
-                <NavLink                  
-                  to={"/all/" + type.plural} 
-                  className={({isActive})=> isActive ?'font-semibold' :'' + "hover:underline"}
-                  onClick={ () => setLoading( true )}
-                >
-                  { type.plural.charAt(0).toUpperCase() + type.plural.slice(1) }
-                </NavLink>
-              </li>
-            ))
-          }
-        </ul>
+        <div ref={ all } className="hidden absolute">
+          <AllNavbar classNames="absolute bg-gradient-to-b from-sky-800 to-sky-600 px-2 py-1 rounded-sm"/>
+        </div>
       </div>
 
 

@@ -41,7 +41,7 @@ export const AllResults = ({ type }) => {
   return (      
       <div>
         <h2>All</h2>
-        <AllNavbar />
+        <AllNavbar classNames="flex gap-1 justify-center" />
 
         <div>
 
