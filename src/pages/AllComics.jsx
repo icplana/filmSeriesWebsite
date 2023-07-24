@@ -10,6 +10,7 @@ export const AllComics = () => {
     const [offset, setOffset] = useState(0)
     const [limit, setLimit] = useState(20)
     const [comics, setComics] = useState([])
+    const [loading, setLoading] = useState(true)
     
 
     const showPerPage = useRef()
@@ -21,7 +22,7 @@ export const AllComics = () => {
         .then( resp => resp.json() )
         .then( data => {
             setComics(data.data);
-            
+            setLoading(false)
             console.log(data)
         })
    }, [ offset, limit ])
@@ -30,15 +31,26 @@ export const AllComics = () => {
   return (      
       <div>
 
-        <p>Actualmente hay un total de { comics.total } comics</p>
+        {
+            loading
+            ? ''
+            : <p>There is a total of { comics.total } comics. Showing { offset } to { Number(offset) + Number(limit) }.</p>
+           }
 
         <div className="flex flex-wrap gap-2 justify-center">
-            {
-                comics.results?.map( comic => {
-                    return(
-                        <ComicPreview key={ comic.id } comic={ comic } />
-                    )
-                })
+           
+           
+           
+           
+            {                
+                loading
+                ? 'Loading'
+                :                     
+                        comics.results?.map( comic => {
+                            return(
+                                <ComicPreview key={ comic.id } comic={ comic } />
+                            )
+                        })
             }
         </div>
         
@@ -46,7 +58,7 @@ export const AllComics = () => {
 
 
         <div>Show per page: 
-            <select ref={ showPerPage } onChange={() => setLimit(showPerPage.current.value) } >
+            <select ref={ showPerPage } onChange={() => {setLimit(showPerPage.current.value); setLoading(true) }} >
                 <option value="20">20</option>
                 <option value="40">40</option>
                 <option value="60">60</option>

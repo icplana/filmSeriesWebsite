@@ -17,12 +17,12 @@ export const NavBar = () => {
       <div><Link to="/">Home</Link></div>
 
       <div>
-        <Link to="/allcomics" >Todos los comics</Link>
+        <Link to="/allcomics" >All the comics</Link>
       </div>
 
 
       <div onMouseEnter={ showBuscador } onMouseLeave={ hideBuscador }>
-        <Link to="/search">Buscador</Link>
+        <Link to="/search">Search</Link>
         <ul ref={ buscador } className="absolute hidden bg-gradient-to-b from-sky-800 to-sky-600 px-2 py-1 rounded-sm">
           <li>Personajes</li>
           <li>Cómics</li>
@@ -43,7 +43,7 @@ export const NavBar = () => {
       </div>
 
       <div>
-        Login - Registrarse
+        Login - Register
       </div>
 
       <hr />
