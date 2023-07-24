@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react"
+import { useContext, useEffect, useRef, useState } from "react"
 
 import { LimitOffsetContext } from "../../contexts/limit-offset/LimitOffsetContext"
 
@@ -19,24 +19,37 @@ import { CreatorPreview } from "../../components/Previews/CreatorPreview"
 
 
 
-export const AllResults = ({ type, searchParam }) => {
-
+export const Search = ({ type, searchParam }) => {
+    
     const { offset, limit, loading, setLoading } = useContext( LimitOffsetContext )
     const [data, setData] = useState([])
-
-    useEffect( () =>{ setLoading(true); setData([]) }, [] )
-
-
-    useEffect(() => {
-
-      const url = `${ baseUrl }v1/public/${ type }?limit=${ limit }&offset=${ offset }&apikey=${ publicKey }&${ searchParam }=${ input.current.value }`
+    const input = useRef()
     
-      fetch( url )
+    
+    const searchInfo = () => {
+        const url = `${ baseUrl }v1/public/${ type }?limit=${ limit }&offset=${ offset }&apikey=${ publicKey }&${ searchParam }=${ input.current.value }`
+        
+        fetch( url )
         .then( resp => resp.json() )
         .then( data => {
             setData(data.data);
             setLoading(false)
+            console.log(data)
         })
+    }
+
+    const onSubmit = (e) => {
+        e.preventDefault()
+        searchInfo()
+    }
+
+    useEffect( () =>{ setLoading(true); setData([]) }, [] )
+    
+    
+    useEffect(() => {
+        
+    searchInfo()
+
    }, [ offset, limit, type ])
     
    
@@ -45,6 +58,18 @@ export const AllResults = ({ type, searchParam }) => {
         <h2>Search</h2>
         <SearchNavbar classNames="flex gap-1 justify-center" />
 
+        <form onSubmit={ onSubmit }>
+          <p>Buscar por { type.slice(0,-1)}</p>
+            <div>
+                <input ref={ input } defaultValue="" type="text" placeholder={ type.slice(0,-1)} />
+            </div>
+
+            <input type="submit" value="Buscar" className=" bg-zinc-600"/>
+           
+
+        </form>
+
+        
         <div>
 
 
