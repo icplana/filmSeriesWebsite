@@ -1,21 +1,24 @@
-import { useEffect, useRef, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { ComicPreview } from "../../components/Previews/ComicPreview"
 import { baseUrl, publicKey } from "../../helpers/APIdata"
 import { AllNavbar } from "../../components/AllNavbar"
+import { LimitOffsetContext } from "../../contexts/limit-offset/LimitOffsetContext"
+import { ShowPerPage } from "../../components/ShowPerPage"
+import { Loading } from "../../components/Loading"
 
 
 
 
 export const AllComics = () => {
 
-    const [offset, setOffset] = useState(0)
-    const [limit, setLimit] = useState(20)
+
     const [comics, setComics] = useState([])
-    const [loading, setLoading] = useState(true)
     
 
-    const showPerPage = useRef()
+    const { offset, limit, loading, setLoading } = useContext( LimitOffsetContext )
     
+
+
     useEffect(() => {
     
     
@@ -33,44 +36,27 @@ export const AllComics = () => {
       <div>
         <h2>All</h2>
         <AllNavbar />
+        <div>
 
-        {
-            loading
-            ? ''
-            : <p>There is a total of { comics.total } comics. Showing { offset } to { Number(offset) + Number(limit) }.</p>
-           }
 
-        <div className="flex flex-wrap gap-2 justify-center">
-           
-           
-           
-           
-            {                
+            {
                 loading
-                ? 'Loading'
-                :                     
-                        comics.results?.map( comic => {
-                            return(
-                                <ComicPreview key={ comic.id } comic={ comic } />
-                            )
-                        })
-            }
-        </div>
-        
-
-
-
-        <div>Show per page: 
-            <select ref={ showPerPage } onChange={() => {setLimit(showPerPage.current.value); setLoading(true) }} >
-                <option value="20">20</option>
-                <option value="40">40</option>
-                <option value="60">60</option>
-                <option value="80">80</option>
-                <option value="100">100</option>
-            </select>
-            <button onClick={ () => setOffset( offset + limit )}>Siguiente</button>
-            <button onClick={ () => setOffset( offset - limit )}>anterior</button>
-        </div>
+                ? ( <Loading/> )
+                : (
+                    <>
+                        <p>There is a total of { comics.total } comics. Showing { offset } to { Number(offset) + Number(limit) }.</p>
+                        <div className="flex flex-wrap gap-2 justify-center">
+                            { 
+                                comics.results?.map( comic => (
+                                    <ComicPreview key={ comic.id } comic={ comic } />
+                                ))
+                            }                
+                        </div>
+                        <ShowPerPage /> 
+                    </> 
+                )
+            }    
+       </div>
     </div>
   )
 }

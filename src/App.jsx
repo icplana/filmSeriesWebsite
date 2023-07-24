@@ -15,36 +15,39 @@ import { AllCreators } from "./pages/All/AllCreators";
 import { AllEvents } from "./pages/All/AllEvents";
 import { AllSeries } from "./pages/All/AllSeries";
 import { AllStories } from "./pages/All/AllStories";
+import { LimitOffsetProvider } from "./contexts/limit-offset/LimitOffsetProvider";
 
 
 export function App() {
   
 
   return (
-    <div className=" bg-gradient-to-br from-sky-800 to-sky-600 w-screen min-h-screen">
-      <NavBar />
-      <Routes>
-        <Route path="/" element={ <HomeLanding /> } />
+    <LimitOffsetProvider>
+      <div className=" bg-gradient-to-br from-sky-800 to-sky-600 w-screen min-h-screen">
+        <NavBar />
+        <Routes>
+          <Route path="/" element={ <HomeLanding /> } />
 
-        <Route path="/seriesinfo" element={ <SeriesInfo /> } />
+          <Route path="/seriesinfo" element={ <SeriesInfo /> } />
 
-        <Route path="/all" element={ <AllComics /> } />
-        <Route path="/all/comics" element={ <AllComics /> } />
-        <Route path="/all/characters" element={ <AllCharacters /> } />
-        <Route path="/all/creators" element={ <AllCreators /> } />
-        <Route path="/all/events" element={ <AllEvents /> } />
-        <Route path="/all/series" element={ <AllSeries /> } />
-        <Route path="/all/stories" element={ <AllStories /> } />
+          <Route path="/all" element={ <AllComics /> } />
+          <Route path="/all/comics" element={ <AllComics /> } />
+          <Route path="/all/characters" element={ <AllCharacters /> } />
+          <Route path="/all/creators" element={ <AllCreators /> } />
+          <Route path="/all/events" element={ <AllEvents /> } />
+          <Route path="/all/series" element={ <AllSeries /> } />
+          <Route path="/all/stories" element={ <AllStories /> } />
 
-        <Route path="/search" element={ <Search /> } />
-        <Route path="/search/comic" element={ <ComicSearch /> } />
-        <Route path="/search/character" element={ <CharacterSearch /> } />
-        <Route path="/search/creator" element={ <CreatorSearch /> } />
-        <Route path="/search/event" element={ <EventSearch /> } />
-        <Route path="/search/serie" element={ <SerieSearch /> } />
-        <Route path="/search/story" element={ <StorySearch /> } />
-      </Routes>
-    </div>
+          <Route path="/search" element={ <Search /> } />
+          <Route path="/search/comic" element={ <ComicSearch /> } />
+          <Route path="/search/character" element={ <CharacterSearch /> } />
+          <Route path="/search/creator" element={ <CreatorSearch /> } />
+          <Route path="/search/event" element={ <EventSearch /> } />
+          <Route path="/search/serie" element={ <SerieSearch /> } />
+          <Route path="/search/story" element={ <StorySearch /> } />
+        </Routes>
+      </div>
+    </LimitOffsetProvider>
   )
 }
 
