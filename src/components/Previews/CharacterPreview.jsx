@@ -9,11 +9,11 @@ export const CharacterPreview = ({ character }) => {
         <h2>{ character.name }</h2>  
         <p>{ character.description }</p>
 
-        <p>Aparece en:</p>
+        <p>Appears on:</p>
         <ul>
-            <li>{ character.comics.available } cómics</li>
+            <li>{ character.comics.available } comics</li>
             <li>{ character.series.available } series</li>
-            <li>{ character.events.available } eventos</li>
+            <li>{ character.events.available } events</li>
             <li>{ character.stories.available } stories</li>
         </ul>    
         

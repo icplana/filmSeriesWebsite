@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react"
 import { baseUrl, publicKey } from "../../helpers/APIdata"
-import { ComicPreview } from "../../components/ComicPreview"
+import { ComicPreview } from "../../components/Previews/ComicPreview"
 import { SearchNavbar } from "../../components/SearchNavbar"
-import { CharacterPreview } from "../../components/CharacterPreview"
+import { CharacterPreview } from "../../components/Previews/CharacterPreview"
 
 
 export const CharacterSearch = () => {

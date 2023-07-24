@@ -1,15 +1,17 @@
 import { useEffect, useRef, useState } from "react"
-import { ComicPreview } from "../components/ComicPreview"
-import { baseUrl, publicKey } from "../helpers/APIdata"
+import { baseUrl, publicKey } from "../../helpers/APIdata"
+import { AllNavbar } from "../../components/AllNavbar"
+import { StoryPreview } from "../../components/Previews/StoryPreview"
 
 
 
 
-export const AllComics = () => {
+
+export const AllStories = () => {
 
     const [offset, setOffset] = useState(0)
     const [limit, setLimit] = useState(20)
-    const [comics, setComics] = useState([])
+    const [stories, setStories] = useState([])
     const [loading, setLoading] = useState(true)
     
 
@@ -18,10 +20,10 @@ export const AllComics = () => {
     useEffect(() => {
     
     
-      fetch( `${ baseUrl }v1/public/comics?limit=${ limit }&offset=${ offset }&apikey=${ publicKey }` )
+      fetch( `${ baseUrl }v1/public/stories?limit=${ limit }&offset=${ offset }&apikey=${ publicKey }` )
         .then( resp => resp.json() )
         .then( data => {
-            setComics(data.data);
+            setStories(data.data);
             setLoading(false)
             console.log(data)
         })
@@ -30,11 +32,13 @@ export const AllComics = () => {
    
   return (      
       <div>
+        <h2>All</h2>
+        <AllNavbar />
 
         {
             loading
             ? ''
-            : <p>There is a total of { comics.total } comics. Showing { offset } to { Number(offset) + Number(limit) }.</p>
+            : <p>There is a total of { stories.total } stories. Showing { offset } to { Number(offset) + Number(limit) }.</p>
            }
 
         <div className="flex flex-wrap gap-2 justify-center">
@@ -46,9 +50,9 @@ export const AllComics = () => {
                 loading
                 ? 'Loading'
                 :                     
-                        comics.results?.map( comic => {
+                        stories.results?.map( story => {
                             return(
-                                <ComicPreview key={ comic.id } comic={ comic } />
+                                <StoryPreview key={ story.id } story={ story } />
                             )
                         })
             }

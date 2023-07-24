@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 import { baseUrl, publicKey } from "../../helpers/APIdata"
-import { ComicPreview } from "../../components/ComicPreview"
+import { ComicPreview } from "../../components/Previews/ComicPreview"
 import { SearchNavbar } from "../../components/SearchNavbar"
 
 
@@ -21,7 +21,7 @@ export const ComicSearch = () => {
     setsearchText( input.current.value )
     console.log({baseUrl, publicKey, input: input.current.value })
 
-    fetch( `${ baseUrl }v1/public/comics?apikey=${ publicKey }&title=${ input.current.value }` )
+    fetch( `${ baseUrl }v1/public/comics?apikey=${ publicKey }&titleStartsWith=${ input.current.value }` )
     .then( resp => resp.json() )
     .then( data => {
         setAPIData(data.data);

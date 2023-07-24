@@ -21,7 +21,7 @@ export const ComicPreview = ({ comic }) => {
           <ul>          
           {
             comic.creators.items.map( creator => (
-              <li>
+              <li key={ creator.name }>
                 { creator.name } ({ creator.role })
               </li>
             ))

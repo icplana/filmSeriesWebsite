@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react"
 import { baseUrl, publicKey } from "../../helpers/APIdata"
 
 import { SearchNavbar } from "../../components/SearchNavbar"
-import { CreatorPreview } from "../../components/CreatorPreview"
+import { CreatorPreview } from "../../components/Previews/CreatorPreview"
 
 
 export const CreatorSearch = () => {
