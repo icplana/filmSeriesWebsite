@@ -3,7 +3,10 @@ import { NavBar } from "./components/NavBar";
 import { HomeLanding } from "./pages/HomeLanding";
 import { SeriesInfo } from "./pages/SeriesInfo";
 import { AllComics } from "./pages/AllComics";
-import { Buscador } from "./pages/Buscador";
+import { Search } from "./pages/Search/Search";
+import { ComicSearch } from "./pages/Search/ComicSearch";
+import { CharacterSearch } from "./pages/Search/CharacterSearch";
+import { CreatorSearch } from "./pages/Search/CreatorsSearch";
 
 
 export function App() {
@@ -16,7 +19,10 @@ export function App() {
         <Route path="/" element={ <HomeLanding /> } />
         <Route path="/seriesinfo" element={ <SeriesInfo /> } />
         <Route path="/allcomics" element={ <AllComics /> } />
-        <Route path="/search" element={ <Buscador /> } />
+        <Route path="/search" element={ <Search /> } />
+        <Route path="/search/comic" element={ <ComicSearch /> } />
+        <Route path="/search/character" element={ <CharacterSearch /> } />
+        <Route path="/search/creator" element={ <CreatorSearch /> } />
       </Routes>
     </div>
   )

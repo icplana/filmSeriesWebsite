@@ -1,8 +1,4 @@
 
-import { creatorsData } from "../helpers/getAllCreators"
-import { seriesData } from "../helpers/getAllSeries"
-import { eventsData } from "../helpers/getAllEvents"
-import { charactersData } from "../helpers/getAllCharacters"
 import { Link } from "react-router-dom"
 import { useRef } from "react"
 
@@ -27,7 +23,7 @@ export const NavBar = () => {
 
       <div onMouseEnter={ showBuscador } onMouseLeave={ hideBuscador }>
         <Link to="/search">Buscador</Link>
-        <ul ref={ buscador } className="hidden">
+        <ul ref={ buscador } className="absolute hidden bg-gradient-to-b from-sky-800 to-sky-600 px-2 py-1 rounded-sm">
           <li>Personajes</li>
           <li>Cómics</li>
           <li>Creadores</li>
