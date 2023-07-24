@@ -6,7 +6,10 @@ import { AllComics } from "./pages/AllComics";
 import { Search } from "./pages/Search/Search";
 import { ComicSearch } from "./pages/Search/ComicSearch";
 import { CharacterSearch } from "./pages/Search/CharacterSearch";
-import { CreatorSearch } from "./pages/Search/CreatorsSearch";
+import { CreatorSearch } from "./pages/Search/CreatorSearch";
+import { EventSearch } from "./pages/Search/EventSearch";
+import { SerieSearch } from "./pages/Search/SerieSearch";
+import { StorySearch } from "./pages/Search/StorySearch";
 
 
 export function App() {
@@ -23,6 +26,9 @@ export function App() {
         <Route path="/search/comic" element={ <ComicSearch /> } />
         <Route path="/search/character" element={ <CharacterSearch /> } />
         <Route path="/search/creator" element={ <CreatorSearch /> } />
+        <Route path="/search/event" element={ <EventSearch /> } />
+        <Route path="/search/serie" element={ <SerieSearch /> } />
+        <Route path="/search/story" element={ <StorySearch /> } />
       </Routes>
     </div>
   )
