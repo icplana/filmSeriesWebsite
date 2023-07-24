@@ -1,7 +1,7 @@
 
 
 export const CreatorPreview = ({ creator }) => {
-    console.log(creator)
+ 
   return (
     <div className="bg-white sm:w-1/2 md:w-1/3 lg:w-1/4" >
         <img src={ creator.thumbnail.path + '.' + creator.thumbnail.extension } alt={ creator.fullName + "image" } />

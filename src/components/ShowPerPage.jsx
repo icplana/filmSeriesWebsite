@@ -17,8 +17,8 @@ export const ShowPerPage = () => {
                 <option value="80">80</option>
                 <option value="100">100</option>
             </select>
-            <button onClick={ () => { setOffset( offset - limit ); setLoading( true )}}>Anterior</button>
-            <button onClick={ () => { setOffset( offset + limit ); setLoading( true ) }}>Siguiente</button>
+            <button onClick={ () => { setOffset( offset - limit )    }}>Anterior</button>
+            <button onClick={ () => { setOffset( offset + limit )  }}>Siguiente</button>
         </div>
   )
 }

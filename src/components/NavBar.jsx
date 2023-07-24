@@ -1,12 +1,16 @@
 
 import { Link, NavLink } from "react-router-dom"
-import { useRef } from "react"
+import { useContext, useRef } from "react"
+import { searchTypes } from "../helpers/APIdata"
+import { LimitOffsetContext } from "../contexts/limit-offset/LimitOffsetContext"
 
 
 export const NavBar = () => {
 
   const all = useRef()
   const search = useRef()
+
+  const { setLoading } = useContext( LimitOffsetContext )
   
   const showAll = () => all.current.classList.remove( 'hidden' )
   const hideAll = () => all.current.classList.add( 'hidden' )
@@ -21,14 +25,22 @@ export const NavBar = () => {
       <div><Link to="/">Home</Link></div>
 
       <div onMouseEnter={ showAll } onMouseLeave={ hideAll } >
-      <Link to="/all">All</Link>
+      <span>All</span>
         <ul ref={ all } className="absolute hidden bg-gradient-to-b from-sky-800 to-sky-600 px-2 py-1 rounded-sm">
-          <li><NavLink to="/all/comics" className={({isActive})=> isActive ?'font-semibold' :'' + "hover:underline"}>Comics</NavLink></li>
-          <li><NavLink to="/all/characters" className={({isActive})=> isActive ?'font-semibold' :'' + "hover:underline"}>Characters</NavLink></li>
-          <li><NavLink to="/all/creators" className={({isActive})=> isActive ?'font-semibold' :'' + "hover:underline"}>Creators</NavLink></li>
-          <li><NavLink to="/all/events" className={({isActive})=> isActive ?'font-semibold' :'' + "hover:underline"}>Events</NavLink></li>
-          <li><NavLink to="/all/series" className={({isActive})=> isActive ?'font-semibold' :'' + "hover:underline"}>Series</NavLink></li>
-          <li><NavLink to="/all/stories" className={({isActive})=> isActive ?'font-semibold' :'' + "hover:underline"}>Stories</NavLink></li>
+
+          {
+            searchTypes.map( type => (
+              <li key={ type.singular }>
+                <NavLink                  
+                  to={"/all/" + type.plural} 
+                  className={({isActive})=> isActive ?'font-semibold' :'' + "hover:underline"}
+                  onClick={ () => setLoading( true )}
+                >
+                  { type.plural.charAt(0).toUpperCase() + type.plural.slice(1) }
+                </NavLink>
+              </li>
+            ))
+          }
         </ul>
       </div>
 
@@ -46,12 +58,6 @@ export const NavBar = () => {
       </div>
 
 
-      <div>
-        <form action="">
-          <input type="text" placeholder="Buscar comics" />
-          <input type="submit" value="Buscar" />
-        </form>
-      </div>
 
       <div>
         Login - Register
