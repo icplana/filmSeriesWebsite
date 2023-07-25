@@ -94,7 +94,6 @@ export const signInWithGoogle = async () => {
   
     const resp = user.then()
     return resp
-<<<<<<< HEAD
 
   } 
 
@@ -137,6 +136,3 @@ export const signInWithGoogle = async () => {
        favorites: favoritesList 
     })
   }
-=======
-  } 
->>>>>>> 2e604f3 (solving merging issues from cloudhub)
