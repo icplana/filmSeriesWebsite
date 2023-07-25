@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router";
 import { LimitOffsetProvider } from "./contexts/limit-offset/LimitOffsetProvider";
 
 import { HomeLanding } from "./pages/HomeLanding";
-import { SeriesInfo } from "./pages/SeriesInfo";
+import { SeriesInfo } from "./pages/Info/SeriesInfo";
 
 import { Search } from "./pages/Search/Search";
 // import { ComicSearch } from "./pages/Search/ComicSearch";
@@ -18,8 +18,8 @@ import { AllResults } from "./pages/All/AllResults";
 import { NavBar } from "./components/NavBar";
 
 import { searchTypes } from "./helpers/APIdata";
-import { EventsInfo } from "./pages/EventsInfo";
-import { StoriesInfo } from "./pages/StoriesInfo";
+import { EventsInfo } from "./pages/Info/EventsInfo";
+import { StoriesInfo } from "./pages/Info/StoriesInfo";
 
 
 export function App() {
