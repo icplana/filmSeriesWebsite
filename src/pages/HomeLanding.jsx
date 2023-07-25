@@ -29,19 +29,22 @@ export const HomeLanding = () => {
             </li>
 
             <li>
-                <span className="font-bold">Filter by events.</span> If there is an event that you like you will be able to get information such as the creators that contributed or the characters that appear in that event.
+                <span className="font-bold">Filter by events.</span> 
+                If there is an event that you like you will be able to get information such as the creators that contributed or the characters that appear in that event.
+                <Link to="/info/eventsinfo">More info about the events.</Link>
                 
-                CREAR LINK CON ---- Los eventos son historias que involucran a múltiples personajes y títulos de cómics, y generalmente tienen un impacto significativo en la continuidad del universo Marvel. Por ejemplo: &#34; Infinity Gauntlet &quot; : Donde Thanos reúne las Gemas del Infinito y se convierte en una entidad todopoderosa.
             </li>
 
             <li>
                 <span className="font-bold">Filter by series.</span> 
-                If there is a series that you like you will be able to find information such as creators that contributed or characters that appear in that serie.
-                <Link to="/seriesinfo">More info about the series.</Link>                 
+                If there is a serie that you like you will be able to find information such as creators that contributed or characters that appear in that serie.
+                <Link to="/info/seriesinfo">More info about the series.</Link>                 
             </li>
 
             <li>
-                <span className="font-bold">Filter by stories</span> Las stories son bla bla bla...
+                <span className="font-bold">Filter by stories</span> 
+                If there is a story that you like you will be able to find information such as creators that contributed or characters that appear in that serie.
+                <Link to="/info/storiesinfo">More info about the stories.</Link>  
             </li>
         </ul>
           

@@ -18,6 +18,8 @@ import { AllResults } from "./pages/All/AllResults";
 import { NavBar } from "./components/NavBar";
 
 import { searchTypes } from "./helpers/APIdata";
+import { EventsInfo } from "./pages/EventsInfo";
+import { StoriesInfo } from "./pages/StoriesInfo";
 
 
 export function App() {
@@ -27,37 +29,35 @@ export function App() {
     <LimitOffsetProvider>
       <div className=" bg-gradient-to-br from-sky-800 to-sky-600 w-screen min-h-screen">
         <NavBar />
-        <Routes>
-          <Route path="/" element={ <HomeLanding /> } />
+        <main>        
+          <Routes>
+            <Route path="/" element={ <HomeLanding /> } />
 
-          <Route path="/seriesinfo" element={ <SeriesInfo /> } />
+            <Route path="/info/seriesinfo" element={ <SeriesInfo /> } />
+            <Route path="/info/eventsinfo" element={ <EventsInfo /> } />
+            <Route path="/info/storiesinfo" element={ <StoriesInfo /> } />
 
-         {
-          searchTypes.map( type => ( 
-            <Route 
-              key={ type.singular } 
-              path={`/all/${ type.plural }`} 
-              element={ <AllResults type= { type.plural } />}  
-            />))
-         }
+          {
+            searchTypes.map( type => ( 
+              <Route 
+                key={ type.singular } 
+                path={`/all/${ type.plural }`} 
+                element={ <AllResults type= { type.plural } />}  
+              />))
+          }
 
-         {
-          searchTypes.map( type => ( 
-            <Route 
-              key={ type.singular } 
-              path={`/search/${ type.singular }`} 
-              element={ <Search type= { type } searchParam={ type.searchParam } />}  
-            />))
-         }
+          {
+            searchTypes.map( type => ( 
+              <Route 
+                key={ type.singular } 
+                path={`/search/${ type.singular }`} 
+                element={ <Search type= { type } searchParam={ type.searchParam } />}  
+              />))
+          }
 
-          {/* <Route path="/search" element={ <Search /> } />
-          <Route path="/search/comic" element={ <ComicSearch /> } />
-          <Route path="/search/character" element={ <CharacterSearch /> } />
-          <Route path="/search/creator" element={ <CreatorSearch /> } />
-          <Route path="/search/event" element={ <EventSearch /> } />
-          <Route path="/search/serie" element={ <SerieSearch /> } />
-          <Route path="/search/story" element={ <StorySearch /> } /> */}
-        </Routes>
+          
+          </Routes>
+        </main>
       </div>  
     </LimitOffsetProvider>
   )
