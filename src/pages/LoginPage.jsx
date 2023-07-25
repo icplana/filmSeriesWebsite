@@ -1,8 +1,9 @@
 import { useContext } from "react"
-import { signInEmail, signInWithGoogle } from "../firebase/firebase"
+import { signInEmail, signInWithGoogle } from "../Firebase/firebase"
 import { useForm } from "../hooks/useForm"
 import { AuthContext } from "../contexts/auth/AuthContext"
 import { useNavigate } from "react-router-dom"
+
 
 
 export const LoginPage = () => {
