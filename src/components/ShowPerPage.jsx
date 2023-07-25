@@ -10,15 +10,15 @@ export const ShowPerPage = () => {
 
   return (
     <div>Show per page: 
-            <select ref={ showPerPage } onChange={() => {setLimit(showPerPage.current.value) }} >
+            <select ref={ showPerPage } onChange={() => { setLoading(true); setLimit(showPerPage.current.value) }} >
                 <option value="20">20</option>
                 <option value="40">40</option>
                 <option value="60">60</option>
                 <option value="80">80</option>
                 <option value="100">100</option>
             </select>
-            <button onClick={ () => { setOffset( offset - limit )    }}>Anterior</button>
-            <button onClick={ () => { setOffset( offset + limit )  }}>Siguiente</button>
+            <button onClick={ () => { setLoading(true); setOffset( offset - limit )    }}>Anterior</button>
+            <button onClick={ () => { setLoading(true); setOffset( offset + limit )  }}>Siguiente</button>
         </div>
   )
 }

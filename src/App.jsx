@@ -46,7 +46,7 @@ export function App() {
             <Route 
               key={ type.singular } 
               path={`/search/${ type.singular }`} 
-              element={ <Search type= { type.plural } searchParam={ type.searchParam } />}  
+              element={ <Search type= { type } searchParam={ type.searchParam } />}  
             />))
          }
 
