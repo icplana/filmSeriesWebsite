@@ -3,7 +3,7 @@ import { Link, Navigate } from "react-router-dom"
 
 import { AuthContext } from "../contexts/auth/AuthContext"
 import { useForm } from "../hooks/useForm"
-import { registerEmail } from "../firebase/firebase"
+import { registerEmail } from "../Firebase/firebase"
 
 
 

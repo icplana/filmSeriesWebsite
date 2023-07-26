@@ -1,69 +1,82 @@
+import { useContext } from "react";
+
 import { Route, Routes } from "react-router";
+import { Navigate } from "react-router-dom";
 
 import { LimitOffsetProvider } from "./contexts/limit-offset/LimitOffsetProvider";
-import { AuthProvider } from "./contexts/auth/AuthProvider";
+import { AuthContext } from "./contexts/auth/AuthContext";
 
 import { HomeLanding } from "./pages/HomeLanding";
 import { SeriesInfo } from "./pages/Info/SeriesInfo";
+import { EventsInfo } from "./pages/Info/EventsInfo";
+import { StoriesInfo } from "./pages/Info/StoriesInfo";
+
+import { RegisterPage } from "./pages/RegisterPage";
+import { LoginPage } from "./pages/LoginPage";
 
 import { Search } from "./pages/Search/Search";
-
 
 import { AllResults } from "./pages/All/AllResults";
 
 import { NavBar } from "./components/NavBar";
 
 import { searchTypes } from "./helpers/APIdata";
-import { EventsInfo } from "./pages/Info/EventsInfo";
-import { StoriesInfo } from "./pages/Info/StoriesInfo";
-import { RegisterPage } from "./pages/RegisterPage";
-import { LoginPage } from "./pages/LoginPage";
+import { UnkwonPage } from "./pages/UnkwonPAge";
+import { Favorites } from "./pages/Favorites";
+
 
 
 
 export function App() {
   
+  const { state } = useContext( AuthContext )
+ 
 
   return (
-    <AuthProvider>
-      <LimitOffsetProvider>
-        <div className=" bg-gradient-to-br from-sky-800 to-sky-600 w-screen min-h-screen">
-          <NavBar />
-          <main>        
-            <Routes>
-              <Route path="/" element={ <HomeLanding /> } />
+    <LimitOffsetProvider>
+      <div className=" bg-gradient-to-br from-sky-800 to-sky-600 w-screen min-h-screen">
+        <NavBar />
+        <main>        
+          <Routes>
+            <Route path="/" element={ <HomeLanding /> } />
 
-              <Route path="/login" element={ <LoginPage /> } />
-              <Route path="/register" element={ <RegisterPage /> } />
-
-              <Route path="/info/seriesinfo" element={ <SeriesInfo /> } />
-              <Route path="/info/eventsinfo" element={ <EventsInfo /> } />
-              <Route path="/info/storiesinfo" element={ <StoriesInfo /> } />
+            <Route path="/login" element={ <LoginPage /> } />
+            <Route path="/register" element={ <RegisterPage /> } />
 
             {
-              searchTypes.map( type => ( 
-                <Route 
-                  key={ type.singular } 
-                  path={`/all/${ type.plural }`} 
-                  element={ <AllResults type= { type.plural } />}  
-                />))
+              state.logged
+              ? <Route path="/favorites" element={ <Favorites /> } />
+              : <Route path="/favorites" element={ <Navigate to="/login" /> } />
             }
-
-            {
-              searchTypes.map( type => ( 
-                <Route 
-                  key={ type.singular } 
-                  path={`/search/${ type.singular }`} 
-                  element={ <Search type= { type } searchParam={ type.searchParam } />}  
-                />))
-            }
-
             
-            </Routes>
-          </main>
-        </div>  
-      </LimitOffsetProvider>
-    </AuthProvider>
+
+            <Route path="/info/seriesinfo" element={ <SeriesInfo /> } />
+            <Route path="/info/eventsinfo" element={ <EventsInfo /> } />
+            <Route path="/info/storiesinfo" element={ <StoriesInfo /> } />
+
+          {
+            searchTypes.map( type => ( 
+              <Route 
+                key={ type.singular } 
+                path={`/all/${ type.plural }`} 
+                element={ <AllResults type= { type.plural } />}  
+              />))
+          }
+
+          {
+            searchTypes.map( type => ( 
+              <Route 
+                key={ type.singular } 
+                path={`/search/${ type.singular }`} 
+                element={ <Search type= { type } searchParam={ type.searchParam } />}  
+              />))
+          }
+
+          <Route path="/*" element={ <UnkwonPage /> } />
+          </Routes>
+        </main>
+      </div>  
+    </LimitOffsetProvider>
   )
 }
 
