@@ -45,11 +45,7 @@ export function App() {
 
             {
               state.logged
-<<<<<<< HEAD
               ? <Route path="/favorites" element={ <FavoritesPage /> } />
-=======
-              ? <Route path="/favorites" element={ <Favorites /> } />
->>>>>>> a6a958d (routes to favorites imlemented)
               : <Route path="/favorites" element={ <Navigate to="/login" /> } />
             }
             
