@@ -10,14 +10,14 @@ import { LoginCard } from "./LoginCard"
 
 
 export const NavBar = () => {
-
+  
  
   const search = useRef()
   const all = useRef()
   const loginCard = useRef()
 
-  const { state, logout } = useContext( AuthContext )
-  
+  const { state, logout, printState } = useContext( AuthContext )
+ 
   const { setLoading } = useContext( LimitOffsetContext )
   
   const showAll = () => all.current.classList.remove( 'hidden' )
@@ -53,10 +53,10 @@ export const NavBar = () => {
 
 
 
-      <div onMouseEnter={ showLoginCard }>
-        <Link to="/login" >Login</Link>
+      <div onClick={ showLoginCard } >
+        <p>Login</p>
         <div className="hidden absolute bg-slate-100" ref={ loginCard }>
-          <button className="ml-auto block" onClick={ hideLoginCard }>X</button>
+          <button className="ml-auto block p-2" onClick={ (e) =>{ hideLoginCard(); e.stopPropagation() } }>X</button>
           <LoginCard />
         </div>       
       </div>
@@ -73,6 +73,7 @@ export const NavBar = () => {
         : ''
       }
 
+      <div><button onClick={ printState }>show state</button></div>
       <hr />
     </header>
   )

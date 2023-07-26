@@ -22,7 +22,7 @@ import { NavBar } from "./components/NavBar";
 
 import { searchTypes } from "./helpers/APIdata";
 import { UnkwonPage } from "./pages/UnkwonPAge";
-import { Favorites } from "./pages/Favorites";
+import { FavoritesPage } from "./pages/FavoritesPage";
 
 
 
@@ -45,7 +45,7 @@ export function App() {
 
             {
               state.logged
-              ? <Route path="/favorites" element={ <Favorites /> } />
+              ? <Route path="/favorites" element={ <FavoritesPage /> } />
               : <Route path="/favorites" element={ <Navigate to="/login" /> } />
             }
             

@@ -55,9 +55,14 @@ switch ( action.type ){
                 user: {
                     ...state.user,
                     favList: action.payload
+                    
                 }
             }
         
+
+        case 'printState':
+            console.log( state )
+
         default:
             return state
     }

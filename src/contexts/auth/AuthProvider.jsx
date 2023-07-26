@@ -41,10 +41,15 @@ export const AuthProvider = ({ children }) => {
     dispatch( action )
   }
 
+  const printState = async () => {
+    const action = { type: 'printState'}
+    dispatch(action)
+  }
+
 
 
   return (
-    <AuthContext.Provider value={ { state, login, logout, updateFavList } }>
+    <AuthContext.Provider value={ { state, login, logout, updateFavList, printState } }>
         { children }
     </AuthContext.Provider>
   )

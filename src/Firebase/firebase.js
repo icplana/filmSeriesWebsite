@@ -2,6 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth'
+import { doc, getDoc, getFirestore, setDoc } from 'firebase/firestore'
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -93,9 +94,45 @@ export const signInWithGoogle = async () => {
   
     const resp = user.then()
     return resp
-<<<<<<< HEAD
+
   } 
-=======
-  }
->>>>>>> main
+
   
+
+
+
+  // BBDD
+
+  const FirebaseDB = getFirestore( app )
+
+
+  export const getFavoritesDB = async ( userId ) => {
+  
+    const resp = await getDoc( doc( FirebaseDB, `${ userId }/favorites` ))
+    
+
+    if ( resp._document !== null ){
+      const data = resp._document.data.value.mapValue.fields.favorites.mapValue.fields
+      if ( data !== undefined ){
+        let favorites = {}
+        for( let [ key, value ] of Object.entries( data )){
+          favorites = { ...favorites, [ key ]: value.arrayValue.values.map( each => each.integerValue ) || [] }
+        }
+        return favorites
+      }
+    }
+  
+    return { comics: [], characters: [], creators: [], events: [], series: [], stories: []}
+    
+  }
+  
+
+  export const updateFavoriteDB = async ({ userId, favoritesList }) => {
+
+    const newDoc = doc(FirebaseDB, `${ userId }` , 'favorites' )
+    
+  
+    await setDoc( newDoc, {
+       favorites: favoritesList 
+    })
+  }

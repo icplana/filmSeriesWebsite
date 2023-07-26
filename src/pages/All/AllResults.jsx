@@ -28,13 +28,17 @@ export const AllResults = ({ type }) => {
 
     useEffect(() => {
 
-    
-      fetch( `${ baseUrl }v1/public/${ type }?limit=${ limit }&offset=${ offset }&apikey=${ publicKey }` )
+    try {
+        fetch( `${ baseUrl }v1/public/${ type }?limit=${ limit }&offset=${ offset }&apikey=${ publicKey }` )
         .then( resp => resp.json() )
         .then( data => {
             setData(data.data);
             setLoading(false)
         })
+    } catch (error) {
+        console.log(error)
+    }
+      
    }, [ offset, limit, type ])
     
    
