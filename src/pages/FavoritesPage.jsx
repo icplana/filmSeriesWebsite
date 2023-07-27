@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 
 import { AuthContext } from '../contexts/auth/AuthContext'
 import { LimitOffsetContext } from '../contexts/limit-offset/LimitOffsetContext'
@@ -18,9 +18,9 @@ import { Loading } from '../components/Loading'
 
 
 export const FavoritesPage = () => {
-    
-    const { loading, setLoading } = useContext( LimitOffsetContext )
-    const { state: { user: { favList: { comics, characters, creators, events, series, stories } } } } = useContext( AuthContext )
+
+    const { loading, setLoading, error, setError } = useContext( LimitOffsetContext )
+    const { state, state: { user: { favList: { comics, characters, creators, events, series, stories } } } } = useContext( AuthContext )
 
     const [comicsFav, setComicsFav] = useState([])
     const [charactersFav, setCharactersFav] = useState([])
@@ -29,16 +29,29 @@ export const FavoritesPage = () => {
     const [seriesFav, setSeriesFav] = useState([])
     const [storiesFav, setStoriesFav] = useState([])
     
-    
+    useEffect( () => { 
+        setError( false )
+        setLoading( true )
+
+        setComicsFav([])
+        setCharactersFav([])
+        setCreatorsFav([])
+        setEventsFav([])
+        setSeriesFav([])
+        setStoriesFav([]) 
+    }, [] )
+
+
+   useEffect( () => {
 
     try {
+       
         comics.map( id =>{
             const url = `${ baseUrl }v1/public/comics/${ id }?apikey=${ publicKey }`            
             fetch( url )
             .then( resp => resp.json() )
             .then( data => {
-              setComicsFav([ ...comicsFav, data.data.results[0] ])
-              console.log(data.data.results[0])
+                setComicsFav((comicsFav) => [ ...comicsFav, data.data.results[0] ])            
             })               
         })
 
@@ -47,8 +60,7 @@ export const FavoritesPage = () => {
             fetch( url )
             .then( resp => resp.json() )
             .then( data => {
-              setCharactersFav([ ...charactersFav, data.data.results[0] ])
-              console.log(data.data.results[0])
+                setCharactersFav((charactersFav) => [ ...charactersFav, data.data.results[0] ])
             })               
         })
 
@@ -57,8 +69,7 @@ export const FavoritesPage = () => {
             fetch( url )
             .then( resp => resp.json() )
             .then( data => {
-              setCreatorsFav([ ...creatorsFav, data.data.results[0] ])
-              console.log(data.data.results[0])
+                setCreatorsFav((creatorsFav) => [ ...creatorsFav, data.data.results[0] ])
             })               
         })
 
@@ -67,19 +78,16 @@ export const FavoritesPage = () => {
             fetch( url )
             .then( resp => resp.json() )
             .then( data => {
-              setEventsFav([ ...eventsFav, data.data.results[0] ])
-              console.log(data.data.results[0])
+                setEventsFav((eventsFav) => [ ...eventsFav, data.data.results[0] ])
             })               
         })
                 
-
         series.map( id =>{
             const url = `${ baseUrl }v1/public/series/${ id }?apikey=${ publicKey }`            
             fetch( url )
             .then( resp => resp.json() )
             .then( data => {
-              setSeriesFav([ ...seriesFav, data.data.results[0] ])
-              console.log(data.data.results[0])
+                setSeriesFav((seriesFav) => [ ...seriesFav, data.data.results[0] ]) 
             })               
         })
 
@@ -88,20 +96,32 @@ export const FavoritesPage = () => {
             fetch( url )
             .then( resp => resp.json() )
             .then( data => {
-              setStoriesFav([ ...storiesFav, data.data.results[0] ])
-              console.log(data.data.results[0])
+                setStoriesFav((storiesFav) => [ ...storiesFav, data.data.results[0] ])
             })               
         })
-                
+ 
+       
+            
+        
+        
     } catch (error) {
         console.error( error )
+    } finally{
+        setLoading( false )         
     }
-   
+
+   }, [ state ])
+
+
+   const printState = () => console.log({comicsFav, charactersFav, creatorsFav, eventsFav, seriesFav, storiesFav})
+
+ 
 
   return (
     <div>
+        <button onClick={ printState }>print state</button>
         {
-            true
+            loading
             ? <Loading />
             : 
                 <div>
@@ -111,7 +131,7 @@ export const FavoritesPage = () => {
                     <div className="flex flex-wrap gap-2 justify-center">
                         { 
                             comicsFav.map( comic => (
-                            <ComicPreview key={ comic.id } comic={ comic }/>
+                                <ComicPreview key={ comic.id } comic={ comic }/> 
                             ))
                         }                
                     </div>
@@ -156,7 +176,7 @@ export const FavoritesPage = () => {
                     <div className="flex flex-wrap gap-2 justify-center">
                         { 
                             storiesFav.map( story => (
-                            <StoryPreview key ={ story  .id } story={ story }/>
+                            <StoryPreview key ={ story.id } story={ story }/>
                             ))
                         }                
                     </div>

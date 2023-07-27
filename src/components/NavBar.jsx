@@ -57,7 +57,7 @@ export const NavBar = () => {
         <p>Login</p>
         <div className="hidden absolute bg-slate-100" ref={ loginCard }>
           <button className="ml-auto block p-2" onClick={ (e) =>{ hideLoginCard(); e.stopPropagation() } }>X</button>
-          <LoginCard />
+          <LoginCard hideLoginCard ={hideLoginCard}/>
         </div>       
       </div>
 

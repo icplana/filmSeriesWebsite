@@ -4,7 +4,7 @@ import { useForm } from "../hooks/useForm"
 import { AuthContext } from "../contexts/auth/AuthContext"
 import { Link, useNavigate } from "react-router-dom"
 
-export const LoginCard = () => {
+export const LoginCard = ({ hideLoginCard }) => {
     const { onInputChange, email, password } = useForm({ email: '', password: '' })
     const { login, state } = useContext( AuthContext )
     const navigate = useNavigate()
@@ -17,6 +17,7 @@ export const LoginCard = () => {
             const favList = await getFavoritesDB( user.uid )
             login( user.email, user.uid, favList )
             navigate('/')
+            hideLoginCard()
         } 
     }
 
@@ -28,6 +29,7 @@ export const LoginCard = () => {
             const favList = await getFavoritesDB( user.uid )
             login( user.email, user.uid, favList )
             navigate('/')
+            hideLoginCard()
         } 
 
     }

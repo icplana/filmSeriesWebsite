@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import { AuthContext } from "../../contexts/auth/AuthContext"
-import { getFavoritesDB, updateFavoriteDB } from "../../firebase/firebase"
+import { updateFavoriteDB } from "../../Firebase/firebase"
 
 
 
