@@ -113,13 +113,12 @@ export const FavoritesPage = () => {
    }, [ state ])
 
 
-   const printState = () => console.log({comicsFav, charactersFav, creatorsFav, eventsFav, seriesFav, storiesFav})
+   
 
  
 
   return (
     <div>
-        <button onClick={ printState }>print state</button>
         {
             loading
             ? <Loading />

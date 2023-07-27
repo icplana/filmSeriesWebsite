@@ -16,7 +16,7 @@ export const NavBar = () => {
   const all = useRef()
   const loginCard = useRef()
 
-  const { state, logout, printState } = useContext( AuthContext )
+  const { state, logout } = useContext( AuthContext )
  
   const { setLoading } = useContext( LimitOffsetContext )
   
@@ -73,8 +73,7 @@ export const NavBar = () => {
         : ''
       }
 
-      <div><button onClick={ printState }>show state</button></div>
-      <hr />
+    
     </header>
   )
 }

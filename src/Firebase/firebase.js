@@ -114,7 +114,7 @@ export const signInWithGoogle = async () => {
     if ( resp._document !== null ){
       const data = resp._document.data.value.mapValue.fields.favorites.mapValue.fields
       if ( data !== undefined ){
-        console.log(data)
+       
         let favorites = {}
         for( let [ key, value ] of Object.entries( data )){
           favorites = { ...favorites, [ key ]: value.arrayValue.values.map( each => Number(each.integerValue) | Number(each.stringValue) ) || [] }
