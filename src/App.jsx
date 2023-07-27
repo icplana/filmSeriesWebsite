@@ -21,7 +21,7 @@ import { AllResults } from "./pages/All/AllResults";
 import { NavBar } from "./components/NavBar";
 
 import { searchTypes } from "./helpers/APIdata";
-import { UnkwonPage } from "./pages/UnkwonPAge";
+import { UnkwonPage } from "./pages/UnkwonPage";
 import { FavoritesPage } from "./pages/FavoritesPage";
 
 
