@@ -34,7 +34,7 @@ export const NavBar = () => {
 
       <div><Link to="/">Home</Link></div>
 
-      <div onMouseEnter={ showAll } onMouseLeave={ hideAll }>
+      <div onMouseEnter={ showAll } onMouseLeave={ hideAll } className="cursor-default">
       <span>All</span>
         <div ref={ all } className="hidden absolute">
           <AllNavbar classNames="absolute bg-gradient-to-b from-sky-800 to-sky-600 px-2 py-1 rounded-sm"/>
@@ -42,7 +42,7 @@ export const NavBar = () => {
       </div>
 
 
-      <div onMouseEnter={ showSearch } onMouseLeave={ hideSearch }>
+      <div onMouseEnter={ showSearch } onMouseLeave={ hideSearch } className="cursor-default">
         <span>Search</span>
         <div ref={ search } className="hidden">
        
@@ -56,10 +56,14 @@ export const NavBar = () => {
         state.logged
         ?''
         :
-          <div onClick={ showLoginCard } >
+          <div onClick={ showLoginCard } className="cursor-pointer" >
             <p>Login</p>
-            <div className="hidden absolute bg-slate-100" ref={ loginCard }>
-              <button className="ml-auto block p-2" onClick={ (e) =>{ hideLoginCard(); e.stopPropagation() } }>X</button>
+            <div className="hidden absolute bg-white w-96 right-5 rounded-md" ref={ loginCard }>
+              <button className="ml-auto block p-2" onClick={ (e) =>{ hideLoginCard(); e.stopPropagation() } }>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="26" height="26">
+                  <path d="M12.0007 10.5865L16.9504 5.63672L18.3646 7.05093L13.4149 12.0007L18.3646 16.9504L16.9504 18.3646L12.0007 13.4149L7.05093 18.3646L5.63672 16.9504L10.5865 12.0007L5.63672 7.05093L7.05093 5.63672L12.0007 10.5865Z"></path>
+                </svg>
+              </button>
               <LoginCard hideLoginCard ={hideLoginCard}/>
             </div>       
           </div>

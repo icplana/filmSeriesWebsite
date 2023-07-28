@@ -39,37 +39,39 @@ export const LoginCard = ({ hideLoginCard }) => {
         {
             state.logged
             ? <p>Already logged in.</p>
-            : <div className="bg-stone-200">
-            <h2>Login</h2>
+            : <div className="rounded-md px-2 py-1">
+            <h2 className="text-2xl mb-4">Login</h2>
 
-            <form onSubmit={ onSubmit }>
-                <div>
-                    <label>Correo</label>
+            <form onSubmit={ onSubmit } className="text-lg font-light mb-6">
+                <div className="mb-2">
+                    <label className="block">Correo</label>
                     <input 
                         type="email"
                         name="email"
                         value={ email }
                         onInput={ onInputChange }
+                        className="rounded border w-10/12"
                     />
                 </div>
 
-                <div>
-                    <label>Contraseña</label>
+                <div className="mb-2">
+                    <label className="block">Contraseña</label>
                     <input 
                         type="password"
                         name="password"
                         value={ password }
                         onInput={ onInputChange }
+                        className="rounded border w-10/12"
                     />
                 </div>
 
-                <input type="submit" value="Login" />
+                <input type="submit" value="Login" className="text-md font-semibold border px-2 py-1 rounded-md mt-2 hover:bg-primaryWhite hover:opacity-80 cursor-pointer" />
             </form>
 
 
-            <button onClick={ onGoogleLogin }>Login with Google</button>
+            <button className="text-md font-semibold border px-2 py-1 rounded-md mb-4 hover:bg-primaryWhite hover:opacity-80" onClick={ onGoogleLogin }>Login with Google</button>
 
-            <Link to="/register" >Register</Link>
+            <Link className="font-semibold border px-2 py-1 rounded-md block w-fit hover:bg-primaryWhite hover:opacity-80" to="/register" >Register</Link>
 
         </div>
         }
