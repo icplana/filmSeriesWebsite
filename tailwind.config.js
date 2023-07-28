@@ -8,7 +8,8 @@ export default {
     extend: {},
     colors: {
       primary: '#075985', // sky-800
-      primaryWhite: '#0284c7' // sky-600
+      primaryWhite: '#0284c7', // sky-600
+      white: '#ffffff'
     }
   },
   plugins: [],

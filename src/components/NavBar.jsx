@@ -10,8 +10,6 @@ import { LoginCard } from "./LoginCard"
 
 
 export const NavBar = () => {
-  
-  console.log(window.innerWidth)
  
   const search = useRef()
   const all = useRef()

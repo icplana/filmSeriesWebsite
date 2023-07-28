@@ -56,11 +56,15 @@ export const AllResults = ({ type }) => {
                     ? ( <Loading/> )
                     : (
                         <>
-                            <h2>All</h2>
-                            <AllNavbar classNames="flex gap-1 justify-center" />
-                            <div>
-                                <p>There is a total of { data.total + ' ' + type }. Showing { offset } to { Number(offset) + Number(limit) }.</p>
-                                <div className="flex flex-wrap gap-2 justify-center">
+                            <h2 className="text-5xl mb-3" >All</h2>
+                            <AllNavbar classNames="flex gap-1 justify-center mb-3" />
+                            <div className="mb-10">
+                                <p 
+                                    className="italic mb-3" 
+                                >
+                                    There is a total of { data.total + ' ' + type }. Showing { offset } to { Number(offset) + Number(limit) }.
+                                </p>
+                                <div className="flex flex-wrap gap-2 justify-around mb-4">
                                     { 
                                     type === 'comics' 
                                         ? data.results?.map( data => <ComicPreview key={ data.id } comic={ data } /> ) 

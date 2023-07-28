@@ -23,6 +23,7 @@ import { NavBar } from "./components/NavBar";
 import { searchTypes } from "./helpers/APIdata";
 import { UnkwonPage } from "./pages/UnkwonPage";
 import { FavoritesPage } from "./pages/FavoritesPage";
+import { Footer } from "./components/Footer";
 
 
 
@@ -75,6 +76,7 @@ export function App() {
           <Route path="/*" element={ <UnkwonPage /> } />
           </Routes>
         </main>
+        <Footer />
       </div>  
     </LimitOffsetProvider>
   )

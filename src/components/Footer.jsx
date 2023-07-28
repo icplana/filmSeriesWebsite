@@ -1,10 +1,12 @@
 
 
 export const Footer = () => {
+  const date = new Date
+  
   return (
     <footer>
 
-Data provided by Marvel. © 2014 Marvel
+Data provided by Marvel. © { date.getFullYear() } Marvel
     </footer>
   )
 }

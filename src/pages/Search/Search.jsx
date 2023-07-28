@@ -69,22 +69,22 @@ export const Search = ({ type, searchParam }) => {
     
    
   return (      
-      <div>
+      <div className="mb-10 mt-3">
         {
             error
             ? <Error />
             :
             <>        
-                <h2>Search</h2>
-                <SearchNavbar classNames="flex gap-1 justify-center" />
+                <h2 className="text-5xl mb-3">Search</h2>
+                <SearchNavbar classNames="flex gap-1 justify-center mb-3" />
 
-                <form onSubmit={ onSubmit }>
-                    <p>Buscar por { type.singular }</p>
-                    <div>
-                        <input ref={ input } defaultValue="" type="text" placeholder={ type.singular } />
+                <form onSubmit={ onSubmit } className="mb-3">
+                    <p className="text-xl font-light mb-2">Buscar por { type.singular }</p>
+                    <div className="mb-2">
+                        <input className="rounded px-2 py-1 " ref={ input } defaultValue="" type="text" placeholder={ type.example + '...' } />
                     </div>
 
-                    <input type="submit" value="Buscar" className=" bg-zinc-600"/>
+                    <input type="submit" value="Buscar" className="rounded-md bg-white px-2 py-1 mt-2 bg-zinc-600 font-semibold"/>
         
                 </form>
     
@@ -96,8 +96,8 @@ export const Search = ({ type, searchParam }) => {
                         ? <p></p>    
                         :(
                             <>
-                                <p>There is a total of { data.total + ' ' + type.plural }. Showing { offset } to { Number(offset) + Number(limit) }.</p>
-                                <div className="flex flex-wrap gap-2 justify-center">
+                                <p className="italic mb-3">There is a total of { data.total + ' ' + type.plural }. Showing { offset } to { Number(offset) + Number(limit) }.</p>
+                                <div className="flex flex-wrap gap-2 justify-center mb-4">
                                     { 
                                     type.plural === 'comics' 
                                         ? data.results?.map( data => <ComicPreview key={ data.id } comic={ data } /> ) 
