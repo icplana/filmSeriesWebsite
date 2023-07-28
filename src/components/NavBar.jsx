@@ -11,6 +11,7 @@ import { LoginCard } from "./LoginCard"
 
 export const NavBar = () => {
   
+  console.log(window.innerWidth)
  
   const search = useRef()
   const all = useRef()
@@ -30,7 +31,7 @@ export const NavBar = () => {
   const hideLoginCard = () => loginCard.current.classList.add('hidden')
 
   return (
-    <header className="bg-gradient-to-b from-sky-800 to-sky-600 border flex min-w-screen justify-evenly md:px-5 py-4">
+    <header className="bg-gradient-to-b from-primary to-primaryWhite border flex min-w-screen justify-evenly md:px-5 py-4">
 
 
       <div><Link to="/">Home</Link></div>
@@ -53,13 +54,18 @@ export const NavBar = () => {
 
 
 
-      <div onClick={ showLoginCard } >
-        <p>Login</p>
-        <div className="hidden absolute bg-slate-100" ref={ loginCard }>
-          <button className="ml-auto block p-2" onClick={ (e) =>{ hideLoginCard(); e.stopPropagation() } }>X</button>
-          <LoginCard hideLoginCard ={hideLoginCard}/>
-        </div>       
-      </div>
+      {
+        state.logged
+        ?''
+        :
+          <div onClick={ showLoginCard } >
+            <p>Login</p>
+            <div className="hidden absolute bg-slate-100" ref={ loginCard }>
+              <button className="ml-auto block p-2" onClick={ (e) =>{ hideLoginCard(); e.stopPropagation() } }>X</button>
+              <LoginCard hideLoginCard ={hideLoginCard}/>
+            </div>       
+          </div>
+      }
 
       { 
         state.logged
