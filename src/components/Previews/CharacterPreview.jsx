@@ -31,7 +31,7 @@ export const CharacterPreview = ({ character }) => {
   }
   return (
     <div className="bg-white w-10/12 sm:w-5/12 xl:w-3/12 rounded-md" >
-        <img className="rounded-t-md" src={ character.thumbnail.path + '.' + character.thumbnail.extension } alt={ character.name + "image" } />
+        <img className="rounded-t-md aspect-square" src={ character.thumbnail.path + '.' + character.thumbnail.extension } alt={ character.name + "image" } />
         <div className="m-2">
           <h2 className="font-bold">{ character.name }</h2>  
           <p className="text-sm">{ character.description }</p>

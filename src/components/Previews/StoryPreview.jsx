@@ -32,13 +32,13 @@ export const StoryPreview = ({ story }) => {
 
 
   return (
-    <div className="bg-white sm:w-1/2 md:w-1/3 lg:w-1/4" >
+    <div className="bg-white w-10/12 sm:w-5/12 xl:w-3/12 rounded-md p-2" >
 
-        <h2>{ story.title }</h2>  
+        <h2 className="font-bold">{ story.title }</h2>  
 
-        <p>Number of comics: { story.comics.available }</p>      
+        <p className="font-light text-lg">Number of comics: { story.comics.available }</p>      
     
-        <button onClick={ () => addFav( story.id, 'stories' ) }>Add Favorites</button>
+        <button className="border-red rounded font-semibold mt-1 text-red px-2 py-1 border-2 hover:bg-red hover:text-white" onClick={ () => addFav( story.id, 'stories' ) }>Add Favorites</button>
     </div>
   )
 }

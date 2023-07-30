@@ -34,8 +34,8 @@ export const ComicPreview = ({ comic }) => {
     <div className="bg-white sm:w-1/2 md:w-1/3 lg:w-1/4 rounded-md">
         {
             ( comic.images[0] )
-            ? <img src={ comic.images[0].path + '.' + comic.images[0].extension } alt="" className="rounded-t-md"/>
-            : <img src="../../assets/images/image_not_available.jpg" alt="No image" className="w-full rounded-t-md"/>
+            ? <img src={ comic.images[0].path + '.' + comic.images[0].extension } alt="" className="rounded-t-md aspect-square"/>
+            : <img src="../../assets/images/image_not_available.jpg" alt="No image" className="w-full rounded-t-md aspect-square"/>
         }
         <div className="my-2 mx-2">
           <h3 className="font-bold mb-1">{ comic.title }</h3>

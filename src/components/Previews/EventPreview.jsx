@@ -33,22 +33,24 @@ export const EventPreview = ({ event }) => {
 
 
   return (
-    <div className="bg-white sm:w-1/2 md:w-1/3 lg:w-1/4" >
-        <img src={ event.thumbnail.path + '.' + event.thumbnail.extension } alt={ event.fullName + "image" } />
-        <h2>{ event.title }</h2>  
-        <p>{ event.description }</p>
+    <div className="bg-white sm:w-1/2 md:w-1/3 lg:w-1/4 rounded-md" >
+        <img className="aspect-square rounded-t-md" src={ event.thumbnail.path + '.' + event.thumbnail.extension } alt={ event.fullName + "image" } />
+        <div className="m-2">
+          <h2 className="font-bold">{ event.title }</h2>  
+          <p className="text-sm">{ event.description }</p>
 
 
-        <p>From this event:</p>
-        <ul>
-            <li>{ event.comics.available } comics</li>
-            <li>{ event.characters.available } characters</li>
-            <li>{ event.series.available } series</li>
-            <li>{ event.creators.available } creators</li>
-            <li>{ event.stories.available } stories</li>
-        </ul>
+          <p className="text-lg font-light">From this event:</p>
+          <ul>
+              <li className="italic">{ event.comics.available } comics</li>
+              <li className="italic">{ event.characters.available } characters</li>
+              <li className="italic">{ event.series.available } series</li>
+              <li className="italic">{ event.creators.available } creators</li>
+              <li className="italic">{ event.stories.available } stories</li>
+          </ul>
 
-        <button onClick={ () => addFav( event.id, 'events' ) }>Add Favorites</button>
+          <button className="border-red rounded font-semibold mt-1 text-red px-2 py-1 border-2 hover:bg-red hover:text-white" onClick={ () => addFav( event.id, 'events' ) }>Add Favorites</button>
+        </div>
     </div>
   )
 }
