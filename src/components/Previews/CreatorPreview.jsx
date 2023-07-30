@@ -32,21 +32,23 @@ export const CreatorPreview = ({ creator }) => {
 
 
   return (
-    <div className="bg-white sm:w-1/2 md:w-1/3 lg:w-1/4" >
+    <div className="bg-white sm:w-1/2 md:w-1/3 lg:w-1/4 rounded-md" >
         <img src={ creator.thumbnail.path + '.' + creator.thumbnail.extension } alt={ creator.fullName + "image" } />
-        <h2>{ creator.fullName }</h2>  
-        <p>{ creator.description }</p>
+        <div className="m-2">
+          <h2 className="font-bold">{ creator.fullName }</h2>  
+          <p className="text-sm">{ creator.description }</p>
 
 
-        <p>This creator contriuted on:</p>
-        <ul>
-            <li>{ creator.comics.available } comics</li>
-            <li>{ creator.series.available } series</li>
-            <li>{ creator.events.available } events</li>
-            <li>{ creator.stories.available } stories</li>
-        </ul>
+          <p className="font-light text-lg">This creator contriuted on:</p>
+          <ul>
+              <li className="italic">{ creator.comics.available } comics</li>
+              <li className="italic">{ creator.series.available } series</li>
+              <li className="italic">{ creator.events.available } events</li>
+              <li className="italic">{ creator.stories.available } stories</li>
+          </ul>
 
-        <button onClick={ () => addFav( creator.id, 'creators' ) }>Add Favorites</button>
+          <button className="border-red rounded font-semibold mt-1 text-red px-2 py-1 border-2 hover:bg-red hover:text-white" onClick={ () => addFav( creator.id, 'creators' ) }>Add Favorites</button>
+        </div> 
     </div>
   )
 }
