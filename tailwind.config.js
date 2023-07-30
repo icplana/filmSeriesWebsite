@@ -9,7 +9,8 @@ export default {
     colors: {
       primary: '#075985', // sky-800
       primaryWhite: '#0284c7', // sky-600
-      white: '#ffffff'
+      white: '#ffffff',
+      red: '#FF0000'
     }
   },
   plugins: [],

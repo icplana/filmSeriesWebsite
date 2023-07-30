@@ -37,7 +37,7 @@ export function App() {
     <LimitOffsetProvider>
       <div className=" bg-gradient-to-br from-primary to-primaryWhite w-screen min-h-screen">
         <NavBar />
-        <main className="max-w-3xl mx-auto">        
+        <main className="max-w-screen-xl mx-auto">        
           <Routes>
             <Route path="/" element={ <HomeLanding /> } />
 

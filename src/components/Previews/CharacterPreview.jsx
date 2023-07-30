@@ -30,20 +30,22 @@ export const CharacterPreview = ({ character }) => {
     
   }
   return (
-    <div className="bg-white sm:w-1/2 md:w-1/3 lg:w-1/4" >
-        <img src={ character.thumbnail.path + '.' + character.thumbnail.extension } alt={ character.name + "image" } />
-        <h2>{ character.name }</h2>  
-        <p>{ character.description }</p>
+    <div className="bg-white w-10/12 sm:w-5/12 xl:w-3/12 rounded-md" >
+        <img className="rounded-t-md" src={ character.thumbnail.path + '.' + character.thumbnail.extension } alt={ character.name + "image" } />
+        <div className="m-2">
+          <h2 className="font-bold">{ character.name }</h2>  
+          <p className="text-sm">{ character.description }</p>
 
-        <p>Appears on:</p>
-        <ul>
-            <li>{ character.comics.available } comics</li>
-            <li>{ character.series.available } series</li>
-            <li>{ character.events.available } events</li>
-            <li>{ character.stories.available } stories</li>
-        </ul>    
-        
-        <button onClick={ () => addFav( character.id, 'characters' ) }>Add Favorites</button>
+          <p className="text-lg font-light">Appears on:</p>
+          <ul>
+              <li className="italic">{ character.comics.available } comics</li>
+              <li className="italic">{ character.series.available } series</li>
+              <li className="italic">{ character.events.available } events</li>
+              <li className="italic">{ character.stories.available } stories</li>
+          </ul>    
+          
+          <button className="border-red rounded font-semibold mt-1 text-red px-2 py-1 border-2 hover:bg-red hover:text-white" onClick={ () => addFav( character.id, 'characters' ) }>Add Favorites</button>
+        </div>
     </div>
   )
 }

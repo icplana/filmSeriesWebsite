@@ -118,16 +118,16 @@ export const FavoritesPage = () => {
  
 
   return (
-    <div>
+    <div className='mt-2'>
         {
             loading
             ? <Loading />
             : 
-                <div>
-                    <h2>Favorites</h2>
+                <div className='mb-4'>
+                    <h2 className='text-5xl mb-4'>Favorites</h2>
                     
-                    <h3>Comics</h3>
-                    <div className="flex flex-wrap gap-2 justify-center">
+                    <h3 className='font-light text-2xl border-b-2 mb-2'>Comics</h3>
+                    <div className="flex flex-wrap gap-2 justify-center mb-3">
                         { 
                             comicsFav.map( comic => (
                                 <ComicPreview key={ comic.id } comic={ comic }/> 
@@ -135,8 +135,8 @@ export const FavoritesPage = () => {
                         }                
                     </div>
 
-                    <h3>Characters</h3>
-                    <div className="flex flex-wrap gap-2 justify-center">
+                    <h3 className='font-light text-2xl border-b-2 mb-2' >Characters</h3>
+                    <div className="flex flex-wrap gap-2 justify-center mb-3">
                         { 
                             charactersFav.map( character => (
                             <CharacterPreview key={ character.id } character={ character }/>
@@ -144,8 +144,8 @@ export const FavoritesPage = () => {
                         }                
                     </div>
 
-                    <h3>Creators</h3>
-                    <div className="flex flex-wrap gap-2 justify-center">
+                    <h3 className='font-light text-2xl border-b-2 mb-2' >Creators</h3>
+                    <div className="flex flex-wrap gap-2 justify-center mb-3">
                         { 
                             creatorsFav.map( creator => (
                             <CreatorPreview key={ creator.id } creator={ creator }/>
@@ -153,8 +153,8 @@ export const FavoritesPage = () => {
                         }                
                     </div>
 
-                    <h3>Events</h3>
-                    <div className="flex flex-wrap gap-2 justify-center">
+                    <h3 className='font-light text-2xl border-b-2 mb-2' >Events</h3>
+                    <div className="flex flex-wrap gap-2 justify-center mb-3">
                         { 
                             eventsFav.map( event => (
                             <EventPreview key={ event.id } event={ event }/>
@@ -162,8 +162,8 @@ export const FavoritesPage = () => {
                         }                
                     </div>
 
-                    <h3>Series</h3>
-                    <div className="flex flex-wrap gap-2 justify-center">
+                    <h3 className='font-light text-2xl border-b-2 mb-2' >Series</h3>
+                    <div className="flex flex-wrap gap-2 justify-center mb-3">
                         { 
                             seriesFav.map( serie => (
                             <SeriePreview key={ serie.id } serie={ serie }/>
@@ -171,8 +171,8 @@ export const FavoritesPage = () => {
                         }                
                     </div>
 
-                    <h3>Stories</h3>
-                    <div className="flex flex-wrap gap-2 justify-center">
+                    <h3 className='font-light text-2xl border-b-2 mb-2' >Stories</h3>
+                    <div className="flex flex-wrap gap-2 justify-center mb-3">
                         { 
                             storiesFav.map( story => (
                             <StoryPreview key ={ story.id } story={ story }/>

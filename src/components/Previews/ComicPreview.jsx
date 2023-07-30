@@ -31,34 +31,37 @@ export const ComicPreview = ({ comic }) => {
     
   }
   return (
-    <div className="bg-white sm:w-1/2 md:w-1/3 lg:w-1/4">
+    <div className="bg-white sm:w-1/2 md:w-1/3 lg:w-1/4 rounded-md">
         {
             ( comic.images[0] )
-            ? <img src={ comic.images[0].path + '.' + comic.images[0].extension } alt="" />
-            : <img src="../../assets/images/image_not_available.jpg" alt="No image" className="w-full"/>
+            ? <img src={ comic.images[0].path + '.' + comic.images[0].extension } alt="" className="rounded-t-md"/>
+            : <img src="../../assets/images/image_not_available.jpg" alt="No image" className="w-full rounded-t-md"/>
         }
-        <h3>{ comic.title }</h3>
+        <div className="my-2 mx-2">
+          <h3 className="font-bold mb-1">{ comic.title }</h3>
 
-        <p>{ comic.description }</p>
+          <p className="mb-1 text-sm">{ comic.description }</p>
 
-        <div>
-          {
-            comic.creators.items.length > 0
-            ? <p>Creators:</p>
-            :''
-          }
-          <ul>          
-          {
-            comic.creators.items.map( creator => (
-              <li key={ creator.name }>
-                { creator.name } ({ creator.role })
-              </li>
-            ))
-          }
-          </ul>
+          <div className="mb-1">
+            {
+              comic.creators.items.length > 0
+              ? <p className="text-lg font-light">Creators:</p>
+              :''
+            }
+            <ul>          
+            {
+              comic.creators.items.map( creator => (
+                <li key={ creator.name } className="italic">
+                  { creator.name } ({ creator.role })
+                </li>
+              ))
+            }
+            </ul>
+          </div>
+            
+        <button className="border-red rounded font-semibold mt-1 text-red px-2 py-1 border-2 hover:bg-red hover:text-white" onClick={ () => addFav( comic.id, 'comics' ) }>Add Favorites</button>
         </div>
 
-        <button onClick={ () => addFav( comic.id, 'comics' ) }>Add Favorites</button>
         
 
     </div>
