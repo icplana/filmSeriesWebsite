@@ -79,7 +79,7 @@ export const Search = ({ type, searchParam }) => {
                 <SearchNavbar classNames="flex gap-1 justify-center mb-3" />
 
                 <form onSubmit={ onSubmit } className="mb-3">
-                    <p className="text-xl font-light mb-2">Buscar por { type.singular }</p>
+                    <p className="text-xl font-light mb-2">Search by { type.singular }</p>
                     <div className="mb-2">
                         <input className="rounded px-2 py-1 " ref={ input } defaultValue="" type="text" placeholder={ type.example + '...' } />
                     </div>
