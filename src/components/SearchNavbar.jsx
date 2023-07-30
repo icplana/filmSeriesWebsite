@@ -11,7 +11,7 @@ export const SearchNavbar = ({ classNames }) => {
                     <li key={ type.singular }>
                         <NavLink
                             to={`/search/${ type.singular }`}
-                            className={({isActive})=> isActive ?'font-semibold' :''}
+                            className={({isActive})=> isActive ?'font-semibold' :'hover:underline'}
                         >
                             { type.plural.charAt(0).toUpperCase() + type.plural.slice(1) }
                         </NavLink>

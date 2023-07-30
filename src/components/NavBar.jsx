@@ -34,7 +34,7 @@ export const NavBar = () => {
 
       <div><Link to="/">Home</Link></div>
 
-      <div onMouseEnter={ showAll } onMouseLeave={ hideAll } className="cursor-default">
+      <div onMouseEnter={ showAll } onMouseLeave={ hideAll } onClick={ hideAll } className="cursor-default">
       <span>All</span>
         <div ref={ all } className="hidden absolute">
           <AllNavbar classNames="absolute bg-gradient-to-b from-sky-800 to-sky-600 px-2 py-1 rounded-sm"/>
@@ -42,7 +42,7 @@ export const NavBar = () => {
       </div>
 
 
-      <div onMouseEnter={ showSearch } onMouseLeave={ hideSearch } className="cursor-default">
+      <div onMouseEnter={ showSearch } onMouseLeave={ hideSearch } onClick={ hideSearch } className="cursor-default">
         <span>Search</span>
         <div ref={ search } className="hidden">
        
