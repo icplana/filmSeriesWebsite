@@ -45,6 +45,7 @@ export const Search = ({ type, searchParam }) => {
         .then( resp => resp.json() )
         .then( data => {
             setData(data.data);
+            console.log(data.data)
             if ( data.data ) { setLoading( false ) } else{ setError( true )}
             
         })
@@ -75,10 +76,10 @@ export const Search = ({ type, searchParam }) => {
             ? <Error />
             :
             <>        
-                <h2 className="text-5xl mb-3">Search</h2>
-                <SearchNavbar classNames="flex gap-1 justify-center mb-3" />
+                <h2 className="text-5xl mb-3 ml-5 ">Search</h2>
+                <SearchNavbar setData= { setData } classNames="hidden sm:flex gap-1 justify-center mb-3" />
 
-                <form onSubmit={ onSubmit } className="mb-3">
+                <form onSubmit={ onSubmit } className="mb-3 ml-5">
                     <p className="text-xl font-light mb-2">Search by { type.singular }</p>
                     <div className="mb-2">
                         <input className="rounded px-2 py-1 " ref={ input } defaultValue="" type="text" placeholder={ type.example + '...' } />
@@ -96,25 +97,32 @@ export const Search = ({ type, searchParam }) => {
                         ? <p></p>    
                         :(
                             <>
-                                <p className="italic mb-3">There is a total of { data.total + ' ' + type.plural }. Showing { offset } to { Number(offset) + Number(limit) }.</p>
-                                <div className="flex flex-wrap gap-2 justify-center mb-4">
-                                    { 
-                                    type.plural === 'comics' 
-                                        ? data.results?.map( data => <ComicPreview key={ data.id } comic={ data } /> ) 
-                                        : type.plural === 'characters' 
-                                            ? data.results?.map( data => <CharacterPreview key={ data.id } character={ data } /> )
-                                            : type.plural === 'creators'
-                                                ? data.results?.map( data => <CreatorPreview key={ data.id } creator={ data } /> )
-                                                : type.plural === 'events'
-                                                    ? data.results?.map( data => <EventPreview key={ data.id } event={ data } /> )
-                                                    : type.plural === 'series'
-                                                        ? data.results?.map( data => <SeriePreview key={ data.id } serie={ data } /> )
-                                                        : type.plural === 'stories'
-                                                            ? data.results?.map( data => <StoryPreview key={ data.id } story={ data } /> )
-                                                            : ''
-                                    }                
-                                </div>
-                                <ShowPerPage /> 
+                            {
+                                data.total === 0
+                                ? <p className="text-center font-light text-3xl my-5">No results</p>
+                                :
+                                    <>
+                                        <p className="italic mb-3">There is a total of { data.total + ' ' + type.plural }. Showing { offset } to { Number(offset) + Number(limit) }.</p>
+                                        <div className="flex flex-wrap gap-2 justify-center mb-4">
+                                            { 
+                                            type.plural === 'comics' 
+                                                ? data.results?.map( data => <ComicPreview key={ data.id } comic={ data } /> ) 
+                                                : type.plural === 'characters' 
+                                                    ? data.results?.map( data => <CharacterPreview key={ data.id } character={ data } /> )
+                                                    : type.plural === 'creators'
+                                                        ? data.results?.map( data => <CreatorPreview key={ data.id } creator={ data } /> )
+                                                        : type.plural === 'events'
+                                                            ? data.results?.map( data => <EventPreview key={ data.id } event={ data } /> )
+                                                            : type.plural === 'series'
+                                                                ? data.results?.map( data => <SeriePreview key={ data.id } serie={ data } /> )
+                                                                : type.plural === 'stories'
+                                                                    ? data.results?.map( data => <StoryPreview key={ data.id } story={ data } /> )
+                                                                    : ''
+                                            }                
+                                        </div>
+                                    </>
+                            }
+                                <ShowPerPage maxOffset={ data.total } /> 
                             </> 
                         )
                 }    

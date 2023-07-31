@@ -2,6 +2,13 @@ import { Link } from "react-router-dom"
 
 
 export const HomeLanding = () => {
+
+    const scrollTo0 = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "auto",
+          })
+    }
   return (
     <div className="mt-5 ml-2 mb-10">
         <h1 className="text-3xl mb-3 text-">Welcome!</h1>
@@ -14,7 +21,7 @@ export const HomeLanding = () => {
             On this website you can search through all of them.
         </p>
     
-        <p className="underline mb-2">Also you will be able to:</p>
+        <p className="text-2xl font-light mb-2">Also you will be able to:</p>
         <ul className="">
             <li className="mb-2">
                 <p className="font-semibold">Filter by character.</p> 
@@ -42,7 +49,7 @@ export const HomeLanding = () => {
                 <p>
                     If there is an event that you like you will be able to get information such as the creators that contributed or the characters that appear in that event.
                 </p> 
-                <Link className="underline" to="/info/eventsinfo">More info about the events.</Link>
+                <Link onClick = { scrollTo0 } className="underline" to="/info/eventsinfo">More info about the events.</Link>
                 
             </li>
 
@@ -51,7 +58,7 @@ export const HomeLanding = () => {
                 <p>
                     If there is a serie that you like you will be able to find information such as creators that contributed or characters that appear in that serie.
                 </p>
-                <Link className="underline" to="/info/seriesinfo">More info about the series.</Link>                 
+                <Link onClick = { scrollTo0 } className="underline" to="/info/seriesinfo">More info about the series.</Link>                 
             </li>
 
             <li className="mb-2">
@@ -59,7 +66,7 @@ export const HomeLanding = () => {
                 <p>
                     If there is a story that you like you will be able to find information such as creators that contributed or characters that appear in that serie.
                 </p>
-                <Link className="underline" to="/info/storiesinfo">More info about the stories.</Link>  
+                <Link onClick = { scrollTo0 } className="underline" to="/info/storiesinfo">More info about the stories.</Link>  
             </li>
         </ul>
           

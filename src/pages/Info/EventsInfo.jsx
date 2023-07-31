@@ -7,9 +7,9 @@ export const EventsInfo = () => {
   const navigateBack = () => navigate(-1);
 
   return (
-    <div>
-        <button onClick={navigateBack}>BACK</button>
-        <h1>What Are Events in Marvel?</h1>
+    <div className=" ml-2 sm:ml-4">
+        <button className="bg-white rounded-sm px-3 py-2 font-bold my-4 mx-2"    onClick={navigateBack}>BACK</button>
+        <h1 className="text-2xl font-light mb-2">What Are Events in Marvel?</h1>
         <p>In the Marvel Universe, events refer to major crossover storylines or arcs that span multiple comic book titles and often involve a wide array of characters and settings. These events are significant and impactful stories that can shape the Marvel Universe and its characters in significant ways. Events are typically published as limited series or as interconnected issues across various ongoing series.</p>
 
         <p>The purpose of these events is to bring together various characters and teams, allowing them to interact in unique and sometimes unexpected ways. Events are often used to explore large-scale threats, cosmic conflicts, major character developments, or even alternate realities. They serve as opportunities for writers and artists to collaborate on a grand scale, bringing their creative vision to life through epic storytelling.</p>

@@ -2,7 +2,7 @@ import { useContext } from "react"
 import { signInEmail, signInWithGoogle } from "../Firebase/firebase"
 import { useForm } from "../hooks/useForm"
 import { AuthContext } from "../contexts/auth/AuthContext"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 
 
@@ -35,35 +35,42 @@ export const LoginPage = () => {
     }
 
   return (
-    <div>
-        <h2>Login</h2>
+    <div className="mx-2 mt-3">
+        <h2 className="text-4xl font-light mb-3">Login</h2>
 
-        <form onSubmit={ onSubmit }>
-            <div>
-                <label>Correo</label>
+        <form onSubmit={ onSubmit } className="mb-4">
+            <div className=" mb-3">
+                <label className="block font-semibold">Correo</label>
                 <input 
                     type="email"
                     name="email"
                     value={ email }
                     onInput={ onInputChange }
+                    className="rounded px-2 py-1"
+                    placeholder="email@email.com"
                 />
             </div>
 
-            <div>
-                <label>Contraseña</label>
+            <div className="mb-3">
+                <label className="block font-semibold">Contraseña</label>
                 <input 
                     type="password"
                     name="password"
                     value={ password }
                     onInput={ onInputChange }
+                    className="rounded px-2 py-1"
+                    placeholder="******"
                 />
             </div>
 
-            <input type="submit" value="Login" />
+            <input className="bg-white rounded-md px-3 py-2 font-bold mb-2" type="submit" value="Login" />
         </form>
 
 
-        <button onClick={ onGoogleLogin }>Login with Google</button>
+        <button className="bg-white rounded-md px-3 py-2 font-bold mb-2"  onClick={ onGoogleLogin }>Login with Google</button>
+
+        <Link className="bg-white rounded-md px-3 py-2 font-bold mb-2 block w-fit" to="/register" >Register</Link>
+
 
     </div>
   )
