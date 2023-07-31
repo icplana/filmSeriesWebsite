@@ -5,7 +5,7 @@ import { searchTypes } from '../helpers/APIdata'
 import { useContext, useRef } from 'react'
 import { LimitOffsetContext } from '../contexts/limit-offset/LimitOffsetContext'
 
-export const AllNavbar = ({ classNames }) => {
+export const AllNavbar = ({ classNames = '', hideMovNavbar = '' }) => {
 
 
     const { setLoading } = useContext( LimitOffsetContext )
@@ -19,7 +19,7 @@ export const AllNavbar = ({ classNames }) => {
                 <NavLink                 
                     to={"/all/" + type.plural} 
                     className={({isActive})=> isActive ?'font-semibold' :'' + "hover:underline"}
-                    onClick={ () => setLoading( true )}
+                    onClick={ () =>{ setLoading( true ); hideMovNavbar() }}
                 >
                     { type.plural.charAt(0).toUpperCase() + type.plural.slice(1) }
                 </NavLink>

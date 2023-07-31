@@ -31,7 +31,7 @@ export const CharacterPreview = ({ character }) => {
   }
   return (
     <div className="bg-white w-10/12 sm:w-5/12 xl:w-3/12 rounded-md" >
-        <img className="rounded-t-md aspect-square" src={ character.thumbnail.path + '.' + character.thumbnail.extension } alt={ character.name + "image" } />
+        <img className="w-full rounded-t-md aspect-square" src={ character.thumbnail.path + '.' + character.thumbnail.extension } alt={ character.name + "image" } />
         <div className="m-2">
           <h2 className="font-bold">{ character.name }</h2>  
           <p className="text-sm">{ character.description }</p>
@@ -44,8 +44,12 @@ export const CharacterPreview = ({ character }) => {
               <li className="italic">{ character.stories.available } stories</li>
           </ul>    
           
-          <button className="border-red rounded font-semibold mt-1 text-red px-2 py-1 border-2 hover:bg-red hover:text-white" onClick={ () => addFav( character.id, 'characters' ) }>Add Favorites</button>
-        </div>
+          {
+            state.logged
+            ? <button className="border-red rounded font-semibold mt-1 text-red px-2 py-1 border-2 hover:bg-red hover:text-white" onClick={ () => addFav( character.id, 'characters' ) }>Add Favorites</button>
+            : ''
+          }
+      </div>
     </div>
   )
 }

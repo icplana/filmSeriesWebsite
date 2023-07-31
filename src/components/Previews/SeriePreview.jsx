@@ -35,7 +35,7 @@ export const SeriePreview = ({ serie }) => {
     return (
       <div className="bg-white sm:w-1/2 md:w-1/3 lg:w-1/4 rounded-md">
          
-        <img className="rounded-t-md aspect-square" src={ serie.thumbnail.path + '.' + serie.thumbnail.extension } alt="" />
+        <img className="w-full rounded-t-md aspect-square" src={ serie.thumbnail.path + '.' + serie.thumbnail.extension } alt="" />
         <div className="m-2">     
           <h3 className="font-bold">{ serie.title }</h3>
 
@@ -44,7 +44,11 @@ export const SeriePreview = ({ serie }) => {
           <p className="italic">End year: { serie.endYear }</p>
     
             
-          <button className="border-red rounded font-semibold mt-1 text-red px-2 py-1 border-2 hover:bg-red hover:text-white" onClick={ () => addFav( serie.id, 'series' ) }>Add Favorites</button>
+          {
+            state.logged
+            ? <button className="border-red rounded font-semibold mt-1 text-red px-2 py-1 border-2 hover:bg-red hover:text-white" onClick={ () => addFav( serie.id, 'series' ) }>Add Favorites</button>
+            : ''
+          }
         </div>
       </div>
     )

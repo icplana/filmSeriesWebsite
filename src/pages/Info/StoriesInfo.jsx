@@ -7,9 +7,9 @@ export const StoriesInfo = () => {
     const navigateBack = () => navigate(-1);
     
   return (
-    <div>
-        <button onClick={navigateBack}>BACK</button>
-        <h1>What Are Stories in Marvel?</h1>
+    <div className=" ml-2 sm:ml-4">
+    <button className="bg-white rounded-sm px-3 py-2 font-bold my-4 mx-2"    onClick={navigateBack}>BACK</button>
+    <h1 className="text-2xl font-light mb-2">What Are Stories in Marvel?</h1>
         <p>In the Marvel Universe, "stories" refer to plotlines or story arcs that unfold within a single comic book series. Unlike events, stories do not involve multiple titles or characters from across the universe but rather focus on specific characters or teams within their own series.</p>
 
         <p>Marvel stories can vary in length, ranging from a few issues to more extended arcs that span multiple comic book releases. These storylines delve into the character development, personal struggles, conflicts, and adventures of the featured heroes or villains.</p>

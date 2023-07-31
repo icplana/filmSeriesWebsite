@@ -62,9 +62,10 @@ export const AllResults = ({ type }) => {
                                 <p 
                                     className="italic mb-3 ml-5" 
                                 >
-                                    There is a total of { data.total + ' ' + type }. Showing { offset } to { Number(offset) + Number(limit) }.
+                                    There is a total of { data.total + ' ' + type }. Showing { offset } to {Math.min( Number(offset) + Number(limit), Number(data.total) ) }.
                                 </p>
-                                <div className="flex flex-wrap gap-1 justify-around mb-4">
+                                <ShowPerPage maxOffset={ data.total } /> 
+                                <div className="flex flex-wrap gap-1 justify-around mb-4 mt-4">
                                     { 
                                     type === 'comics' 
                                         ? data.results?.map( data => <ComicPreview key={ data.id } comic={ data } /> ) 
@@ -81,7 +82,7 @@ export const AllResults = ({ type }) => {
                                                             : ''
                                     }                
                                 </div>
-                                <ShowPerPage /> 
+                                <ShowPerPage maxOffset={ data.total } /> 
                             </div>
                         </> 
                     )

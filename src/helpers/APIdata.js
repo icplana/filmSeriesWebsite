@@ -8,11 +8,11 @@ export const publicKey = 'fa13619919a9d567c3343e6c8ea6b724' //secondary, just lo
 export const baseUrl = 'https://gateway.marvel.com/'
 
 export const searchTypes = [ 
-    { singular:'comic', plural: 'comics', searchParam: 'titleStartsWith', example: 'Spider-man' },
-    { singular:'character', plural: 'characters', searchParam: 'name', example: 'Hulk' },
-    { singular:'creator', plural: 'creators', searchParam: 'nameStartsWith', example: 'Balak' },
-    { singular:'event', plural: 'events', searchParam: 'nameStartsWith', example: 'Age of Apocalypse' },
-    { singular:'serie', plural: 'series', searchParam: 'titleStartsWith', example: '2020 Iron Age' },
-    { singular:'story', plural: 'stories', searchParam: 'titleStartsWith', example: 'Ordinary New York City cop Frankie...' },
+    { singular:'comic', plural: 'comics', searchParam: 'titleStartsWith', example: 'Spider-man', form: 'comic'  },
+    { singular:'character', plural: 'characters', searchParam: 'name', example: 'Hulk', form: 'character' },
+    { singular:'creator', plural: 'creators', searchParam: 'nameStartsWith', example: 'Balak', form: 'creators' },
+    { singular:'event', plural: 'events', searchParam: 'nameStartsWith', example: 'Age of Apocalypse', form: 'event' },
+    { singular:'serie', plural: 'series', searchParam: 'titleStartsWith', example: '2020 Iron Age', form: 'serie' },
+    { singular:'story', plural: 'stories', searchParam: 'events', example: 'Age of Apocalypse', form: 'stories by character (id)' },
 ]
 

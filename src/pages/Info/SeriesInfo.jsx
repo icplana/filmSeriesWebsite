@@ -5,9 +5,9 @@ export const SeriesInfo = () => {
   const navigateBack = () => navigate(-1);
 
   return (
-    <div>
-      <button onClick={navigateBack}>BACK</button>
-      <h1>What Are Series in Marvel?</h1>
+    <div className=" ml-2 sm:ml-4">
+    <button className="bg-white rounded-sm px-3 py-2 font-bold my-4 mx-2"    onClick={navigateBack}>BACK</button>
+    <h1 className="text-2xl font-light mb-2">What Are Series in Marvel?</h1>
       <p>In the context of Marvel comics, "series" refers to ongoing or limited comic book publications that feature specific characters, teams, or storylines. Marvel publishes a variety of series, each with its own unique focus and narrative.</p>
 
       <p>Ongoing series are regularly released and continue for an extended period, providing consistent adventures and character development. These series often focus on popular characters like Spider-Man, Iron Man, Captain America, and the X-Men.</p>
