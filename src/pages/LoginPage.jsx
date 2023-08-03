@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { signInEmail, signInWithGoogle } from "../Firebase/firebase"
+import { getFavoritesDB, signInEmail, signInWithGoogle } from "../Firebase/firebase"
 import { useForm } from "../hooks/useForm"
 import { AuthContext } from "../contexts/auth/AuthContext"
 import { Link, useNavigate } from "react-router-dom"
@@ -18,7 +18,8 @@ export const LoginPage = () => {
         const user = await signInEmail( email, password )
 
         if ( user.auth ){
-            login( email, password )
+            const favList = await getFavoritesDB( user.uid )
+            login( user.email, user.uid, favList )
             navigate('/')
         } 
     }
@@ -28,7 +29,8 @@ export const LoginPage = () => {
         const user = await signInWithGoogle()
        
         if ( user.auth ){
-            login( email, password )
+            const favList = await getFavoritesDB( user.uid )
+            login( user.email, user.uid, favList )
             navigate('/')
         } 
 

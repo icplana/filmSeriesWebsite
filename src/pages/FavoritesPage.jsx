@@ -21,6 +21,7 @@ export const FavoritesPage = () => {
 
     const { loading, setLoading, error, setError } = useContext( LimitOffsetContext )
     const { state, state: { user: { favList: { comics, characters, creators, events, series, stories } } } } = useContext( AuthContext )
+  
 
     const [comicsFav, setComicsFav] = useState([])
     const [charactersFav, setCharactersFav] = useState([])
