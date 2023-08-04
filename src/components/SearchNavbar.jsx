@@ -2,7 +2,7 @@
 import { NavLink } from 'react-router-dom'
 import { searchTypes } from '../helpers/APIdata'
 
-export const SearchNavbar = ({ classNames ='', hideMovNavbar, setData }) => {
+export const SearchNavbar = ({ classNames = '', hideMovNavbar = () => {}, setData = () => {} }) => {
   return (
     <div>
         <div>

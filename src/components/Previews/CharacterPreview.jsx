@@ -42,7 +42,9 @@ export const CharacterPreview = ({ character }) => {
               <li className="italic">{ character.series.available } series</li>
               <li className="italic">{ character.events.available } events</li>
               <li className="italic">{ character.stories.available } stories</li>
-          </ul>    
+          </ul>
+
+          <p>ID: { character.id }</p>    
           
           {
             state.logged

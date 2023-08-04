@@ -46,6 +46,7 @@ export const CreatorPreview = ({ creator }) => {
               <li className="italic">{ creator.events.available } events</li>
               <li className="italic">{ creator.stories.available } stories</li>
           </ul>
+          <p>ID: { creator.id }</p>  
 
           {
             state.logged

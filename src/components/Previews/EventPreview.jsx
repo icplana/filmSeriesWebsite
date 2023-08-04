@@ -49,6 +49,8 @@ export const EventPreview = ({ event }) => {
               <li className="italic">{ event.stories.available } stories</li>
           </ul>
 
+          <p>ID: { event.id }</p>  
+
           {
             state.logged
             ? <button className="border-red rounded font-semibold mt-1 text-red px-2 py-1 border-2 hover:bg-red hover:text-white" onClick={ () => addFav( event.id, 'events' ) }>Add Favorites</button>

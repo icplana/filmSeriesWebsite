@@ -57,6 +57,8 @@ export const ComicPreview = ({ comic }) => {
               ))
             }
             </ul>
+
+            <p>ID: { comic.id }</p>  
           </div>
             
           {

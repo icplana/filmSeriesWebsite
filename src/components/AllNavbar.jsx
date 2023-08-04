@@ -5,7 +5,7 @@ import { searchTypes } from '../helpers/APIdata'
 import { useContext, useRef } from 'react'
 import { LimitOffsetContext } from '../contexts/limit-offset/LimitOffsetContext'
 
-export const AllNavbar = ({ classNames = '', hideMovNavbar = '' }) => {
+export const AllNavbar = ({ classNames = '', hideMovNavbar = () => {} }) => {
 
 
     const { setLoading } = useContext( LimitOffsetContext )

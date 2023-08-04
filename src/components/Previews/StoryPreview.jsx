@@ -37,7 +37,9 @@ export const StoryPreview = ({ story }) => {
         <h2 className="font-bold">{ story.title }</h2>  
 
         <p className="font-light text-lg">Number of comics: { story.comics.available }</p>      
-    
+
+        <p>ID: { story.id }</p>  
+
         {
             state.logged
             ? <button className="border-red rounded font-semibold mt-1 text-red px-2 py-1 border-2 hover:bg-red hover:text-white" onClick={ () => addFav( story.id, 'stories' ) }>Add Favorites</button>

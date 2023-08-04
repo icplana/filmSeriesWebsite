@@ -42,7 +42,8 @@ export const SeriePreview = ({ serie }) => {
           <p className="text-sm">{ serie.description }</p>
           <p className="italic">Start year: { serie.startYear }</p>
           <p className="italic">End year: { serie.endYear }</p>
-    
+
+          <p>ID: { serie.id }</p>  
             
           {
             state.logged

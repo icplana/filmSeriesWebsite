@@ -81,7 +81,7 @@ export const NavBar = () => {
 
           { 
             state.logged
-            ? <div><Link to="/favorites">Mis favoritos</Link></div>
+            ? <div><Link to="/favorites">Favorites</Link></div>
             : ''
           }
 
