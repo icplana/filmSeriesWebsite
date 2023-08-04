@@ -38,6 +38,7 @@ export const Search = ({ type, searchParam }) => {
 
         const titleValue = titleInput.current && titleInput.current.value !== '' ? '&titleStartsWith=' + titleInput.current.value : '' 
         const nameValue = nameInput.current && nameInput.current.value !== '' ? '&nameStartsWith=' + nameInput.current.value : '' 
+        const comicValue = comicInput.current && comicInput.current.value !== '' ? '&comics=' + comicInput.current.value : '' 
         const characterValue = characterInput.current && characterInput.current.value !== '' ? '&characters=' + characterInput.current.value : '' 
         const creatorValue = creatorInput.current && creatorInput.current.value !== ''  ? '&creators=' + creatorInput.current.value : '' 
         const eventValue = eventInput.current && eventInput.current.value !== '' ? '&events=' + eventInput.current.value : '' 
@@ -56,11 +57,12 @@ export const Search = ({ type, searchParam }) => {
         // })
 
         
-        const url = `${ baseUrl }v1/public/${ type.plural }?limit=${ limit }&offset=${ offset }&apikey=${ publicKey }${ nameValue }${ titleValue }${ characterValue }${ creatorValue }${ eventValue }${ serieValue }${ storyValue }`
+        const url = `${ baseUrl }v1/public/${ type.plural }?limit=${ limit }&offset=${ offset }&apikey=${ publicKey }${ nameValue }${ titleValue }${ comicValue }${ characterValue }${ creatorValue }${ eventValue }${ serieValue }${ storyValue }`
         // console.log(url)
       if ( 
         titleValue === '' && 
         nameValue === '' && 
+        comicValue === '' && 
         characterValue === '' && 
         creatorValue === '' && 
         eventValue === '' &&
@@ -140,7 +142,7 @@ export const Search = ({ type, searchParam }) => {
                         ?    
                             <div className="mb-2 flex flex-col">
                                 <label>Comic (ID*)</label>
-                                <input className="rounded px-2 py-1 " ref={ characterInput } defaultValue="" type="number" placeholder={ '84510' } />
+                                <input className="rounded px-2 py-1 " ref={ comicInput } defaultValue="" type="number" placeholder={ '84510' } />
                             </div>
                         : ''
                     }
