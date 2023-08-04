@@ -27,6 +27,7 @@ export const Search = ({ type, searchParam }) => {
 
     const titleInput = useRef()
     const nameInput = useRef()
+    const comicInput = useRef()
     const characterInput = useRef()
     const creatorInput = useRef()
     const eventInput = useRef()
