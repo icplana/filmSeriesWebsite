@@ -65,13 +65,13 @@ export const LoginCard = ({ hideLoginCard }) => {
                     />
                 </div>
 
-                <input type="submit" value="Login" className="text-md font-semibold border px-2 py-1 rounded-md mt-2 hover:bg-primaryWhite hover:opacity-80 cursor-pointer" />
+                <input type="submit" value="Login" className="text-md font-semibold border px-2 py-1 rounded-md mt-2 hover:bg-primary hover:text-white2 cursor-pointer" />
             </form>
 
 
-            <button className="text-md font-semibold border px-2 py-1 rounded-md mb-4 hover:bg-primaryWhite hover:opacity-80" onClick={ onGoogleLogin }>Login with Google</button>
+            <button className="text-md font-semibold border px-2 py-1 rounded-md mb-4 hover:bg-primary hover:text-white2" onClick={ onGoogleLogin }>Login with Google</button>
 
-            <Link className="font-semibold border px-2 py-1 rounded-md block w-fit hover:bg-primaryWhite hover:opacity-80" to="/register" >Register</Link>
+            <Link className="font-semibold border px-2 py-1 rounded-md block w-fit hover:bg-primary hover:text-white2" to="/register" >Register</Link>
 
         </div>
         }
