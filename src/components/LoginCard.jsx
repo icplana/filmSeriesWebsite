@@ -35,7 +35,7 @@ export const LoginCard = ({ hideLoginCard }) => {
     }
 
   return (
-    <div className="">
+    <div className="text-primary">
         {
             state.logged
             ? <p>Already logged in.</p>

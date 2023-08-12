@@ -7,10 +7,14 @@ export default {
   theme: {
     extend: {},
     colors: {
-      primary: '#075985', // sky-800
-      primaryWhite: '#0284c7', // sky-600
+      primary: '#111111', // sky-800
+      primaryWhite: '#333333', // sky-600
       white: '#ffffff',
-      red: '#FF0000'
+      white2: '#eeeeee',
+      red: '#FF0000',
+      softRed: '#ff4444',
+      black: '#000000',
+      
     }
   },
   plugins: [],

@@ -37,7 +37,7 @@ export const LoginPage = () => {
     }
 
   return (
-    <div className="mx-2 mt-3">
+    <div className="mx-2 mt-3 text-primary">
         <h2 className="text-4xl font-light mb-3">Login</h2>
 
         <form onSubmit={ onSubmit } className="mb-4">
