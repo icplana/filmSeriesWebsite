@@ -32,7 +32,8 @@ export const RegisterPage = () => {
             
            const resp = await registerEmail( email, password )
            if ( resp.auth ) {
-                succesAlert.current.classList.remove('d-none')
+                succesAlert.current.classList.remove('hidden')
+                login( email )
            }
            
 
@@ -59,74 +60,75 @@ export const RegisterPage = () => {
 
     const { login } = useContext( AuthContext )
 
+  
+
   return (
-    <div className=''>
+    <div className="mt-2 sm:mt-3 text-primary w-screen sm:max-w-lg px-5">
+      <h3 className='text-4xl font-light mb-3 text-white2'>Register</h3>
     <form className='' onSubmit={onRegister}>
-      <h3 className=''>Registro de cuenta</h3>
       
-        <div className=''>          
-          <label htmlFor="nombre" className='form-label'>Nombre</label>
+        <div className='mb-4 w-full'>          
+          <label htmlFor="nombre" className='block font-semibold text-white2'>Email</label>
           <input 
             type="text" 
             id='nombre'
             name='nombre' 
-            className='' 
-            placeholder='Juan Hidalgo'
+            className='rounded px-2 py-1 w-full' 
+            placeholder='Michael Smith'
             value={ nombre }
             onInput={ onInputChange }            
           />
-          <div className="" role="alert" ref={nameAlert}>
-            Nombre no válido
+          <div className="bg-softRed" ref={nameAlert}>
+            Invalid name
           </div>
         </div>
       
         <div className=''>          
-          <label htmlFor="email" className='form-label'>Correo</label>
+          <label htmlFor="email" className='block font-semibold text-white2'>Email</label>
           <input 
             type="email" 
             id='email'
             name='email' 
-            className='form-control mb-2' 
-            placeholder='correo@correo.com'
+            className='rounded px-2 py-1 w-full' 
+            placeholder='email@email.com'
             value={ email }
             onInput={ handleInputChange }            
           />
-           <div className="" role="alert" ref={correoAlert}>
-            Email no válido
+           <div className=" bg-softRed" ref={correoAlert}>
+            Invalid email
           </div>
         </div>
 
 
         <div className=''>
-          <label className=''>Contraseña</label>
+          <label className='block font-semibold text-white2'>Password</label>
           <input 
             type="password" 
-            className='' 
+            className='rounded px-2 py-1 w-full' 
             placeholder='********'
             name='password'
             value={ password }
             onInput={ handleInputChange }  
           />
-           <div className="alert alert-danger d-none" role="alert" ref={passwordAlert}>
-            La contraseña debe tener almenos 6 caracteres
+           <div className="bg-softRed" ref={passwordAlert}>
+            Password must have at least 6 characters
           </div>
         </div>
 
-        <button className='' >
-          Registrarse
+        <button className='bg-white rounded-md px-3 py-2 font-bold mb-4' >
+          Register
         </button>
 
-        <div className="" role="alert" ref={succesAlert}>
-            Registro Correcto
+        <div className="bg-softGreen" ref={succesAlert}>
+            Succesfull registration
 
-            <Link to="/" className="" onClick={ () => login( email )}>Entrar</Link>
         </div>
 
 
 
       </form>
 
-      <Link to="/login" className="">Ya tengo cuenta!</Link>
+      <Link to="/login" className=" text-white2 underline text-md">I have an account</Link>
     </div>
   )
 }

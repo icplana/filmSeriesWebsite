@@ -14,6 +14,7 @@ export default {
       red: '#FF0000',
       softRed: '#ff4444',
       black: '#000000',
+      softGreen: "#74FF64",
       
     }
   },

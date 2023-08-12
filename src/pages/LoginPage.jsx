@@ -37,7 +37,7 @@ export const LoginPage = () => {
     }
 
   return (
-    <div className="sm:mx-2 mt-2 sm:mt-3 text-primary w-screen px-5">
+    <div className="mt-2 sm:mt-3 text-primary w-screen sm:max-w-lg px-5">
         <h2 className="text-4xl font-light mb-3 text-white2">Login</h2>
 
         <form onSubmit={ onSubmit } className="mb-4 w-full">
