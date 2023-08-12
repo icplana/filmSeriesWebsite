@@ -37,30 +37,30 @@ export const LoginPage = () => {
     }
 
   return (
-    <div className="mx-2 mt-3 text-primary">
-        <h2 className="text-4xl font-light mb-3">Login</h2>
+    <div className="sm:mx-2 mt-2 sm:mt-3 text-primary w-screen px-5">
+        <h2 className="text-4xl font-light mb-3 text-white2">Login</h2>
 
-        <form onSubmit={ onSubmit } className="mb-4">
+        <form onSubmit={ onSubmit } className="mb-4 w-full">
             <div className=" mb-3">
-                <label className="block font-semibold">Correo</label>
+                <label className="block font-semibold text-white2">Correo</label>
                 <input 
                     type="email"
                     name="email"
                     value={ email }
                     onInput={ onInputChange }
-                    className="rounded px-2 py-1"
+                    className="rounded px-2 py-1 w-full"
                     placeholder="email@email.com"
                 />
             </div>
 
             <div className="mb-3">
-                <label className="block font-semibold">Contraseña</label>
+                <label className="block font-semibold text-white2">Contraseña</label>
                 <input 
                     type="password"
                     name="password"
                     value={ password }
                     onInput={ onInputChange }
-                    className="rounded px-2 py-1"
+                    className="rounded px-2 py-1 w-full"
                     placeholder="******"
                 />
             </div>
@@ -69,8 +69,10 @@ export const LoginPage = () => {
         </form>
 
 
-        <button className="bg-white rounded-md px-3 py-2 font-bold mb-2"  onClick={ onGoogleLogin }>Login with Google</button>
+        <button className="bg-white rounded-md px-3 py-2 font-bold mb-4"  onClick={ onGoogleLogin }>Login with Google</button>
+        
 
+        <p className="text-white2 mb-1">Don't have an account?</p>
         <Link className="bg-white rounded-md px-3 py-2 font-bold mb-2 block w-fit" to="/register" >Register</Link>
 
 
