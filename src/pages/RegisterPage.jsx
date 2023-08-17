@@ -11,29 +11,33 @@ import { registerEmail } from "../Firebase/firebase"
 export const RegisterPage = () => {
     
     const onRegister = async (e) => {
-        e.preventDefault()
+      e.preventDefault()
         let validation = true
         
         if ( nombre.length < 1 ) {
             validation = false
-            nameAlert.current.classList.remove('d-none')
+            showNameAlert()
         }
         if ( password.length < 6 ) {
             validation = false
-            passwordAlert.current.classList.remove('d-none')
+            showPasswordlAlert()
         }
         if ( email.length < 1 || !email.includes('@')) {
             validation = false
-            correoAlert.current.classList.remove('d-none')
+            showEmailAlert()
         }
 
 
         if ( validation === true ) {
             
            const resp = await registerEmail( email, password )
+           console.log(resp)
            if ( resp.auth ) {
                 succesAlert.current.classList.remove('hidden')
-                login( email )
+                login( email, resp.uid, '' )
+           }
+           else{
+            showErrorAlert()
            }
            
 
@@ -44,9 +48,9 @@ export const RegisterPage = () => {
     const handleInputChange = (e) => {
         onInputChange(e)
         
-        if ( nombre.length > 1 ) nameAlert.current.classList.add('d-none')
-        if ( password.length > 4 ) passwordAlert.current.classList.add('d-none')
-        if ( email.length > 1 && email.includes('@')) correoAlert.current.classList.add('d-none')
+        // if ( nombre.length > 1 ) nameAlert.current.classList.add('d-none')
+        // if ( password.length > 4 ) passwordAlert.current.classList.add('d-none')
+        // if ( email.length > 1 && email.includes('@')) correoAlert.current.classList.add('d-none')
     
     }
 
@@ -54,12 +58,41 @@ export const RegisterPage = () => {
     const correoAlert = useRef()
     const passwordAlert = useRef()
     const succesAlert = useRef()
+    const errorAlert = useRef()
    
 
     const { onInputChange, email, password, nombre } = useForm({ email: '', password: '' , nombre: '' })
 
     const { login } = useContext( AuthContext )
 
+    const showNameAlert = () => {
+      nameAlert.current.classList.remove('hidden')
+      setTimeout(() => {        
+        nameAlert.current.classList.add('hidden')
+      }, 2800);
+    }
+
+    const showEmailAlert = () => {
+      correoAlert.current.classList.remove('hidden')
+      setTimeout(() => {          
+        correoAlert.current.classList.add('hidden')
+      }, 2800);
+    }
+    const showPasswordlAlert = () => {
+      passwordAlert.current.classList.remove('hidden')
+      setTimeout(() => {        
+        passwordAlert.current.classList.add('hidden')
+      }, 2800);
+    }
+  
+    const showErrorAlert = () => {
+      errorAlert.current.classList.remove('hidden')
+      setTimeout(() => {        
+        errorAlert.current.classList.add('hidden')
+      }, 2800);
+    }
+  
+    
   
 
   return (
@@ -78,7 +111,7 @@ export const RegisterPage = () => {
             value={ nombre }
             onInput={ onInputChange }            
           />
-          <div className="bg-softRed" ref={nameAlert}>
+          <div className="bg-softRed mt-2 rounded -md px-2 py-1 text-sm font-semibold hidden" ref={nameAlert}>
             Invalid name
           </div>
         </div>
@@ -94,13 +127,13 @@ export const RegisterPage = () => {
             value={ email }
             onInput={ handleInputChange }            
           />
-           <div className=" bg-softRed" ref={correoAlert}>
+           <div className=" bg-softRed mt-2 rounded -md px-2 py-1 text-sm font-semibold hidden" ref={correoAlert}>
             Invalid email
           </div>
         </div>
 
 
-        <div className=''>
+        <div className='mb-4'>
           <label className='block font-semibold text-white2'>Password</label>
           <input 
             type="password" 
@@ -110,7 +143,7 @@ export const RegisterPage = () => {
             value={ password }
             onInput={ handleInputChange }  
           />
-           <div className="bg-softRed" ref={passwordAlert}>
+           <div className="bg-softRed mt-2 rounded -md px-2 py-1 text-sm font-semibold hidden" ref={passwordAlert}>
             Password must have at least 6 characters
           </div>
         </div>
@@ -119,8 +152,13 @@ export const RegisterPage = () => {
           Register
         </button>
 
-        <div className="bg-softGreen" ref={succesAlert}>
+        <div className="bg-softGreen mt-2 rounded -md px-2 py-1 text-sm font-semibold hidden" ref={succesAlert}>
             Succesfull registration
+
+        </div>
+        
+        <div className="bg-softRed mt-2 rounded -md px-2 py-1 text-sm font-semibold hidden" ref={errorAlert}>
+            Something went wrong
 
         </div>
 
