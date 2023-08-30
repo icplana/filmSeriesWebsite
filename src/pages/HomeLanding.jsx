@@ -10,7 +10,7 @@ export const HomeLanding = () => {
           })
     }
   return (
-    <div className="mt-5 ml-2 mb-10">
+    <div className="mt-5 ml-2 mb-10 px-2">
         <h1 className="text-3xl mb-3 font-bold ">Welcome to learning <span className="text-red animate-bounce inline-block">MARVEL</span></h1>
 
         <p className="mb-3 text-lg italic">If you are here probably you are interested in knowing more about <span className="text-red ">Marvel</span>.</p>
