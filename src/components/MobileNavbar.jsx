@@ -51,7 +51,7 @@ export const MobileNavbar = () => {
                 </div>
 
             <div className="">
-                <span className="font-semibold w-full" onClick={ toggleAllMobile }>All</span>
+                <div className="font-semibold w-full" onClick={ toggleAllMobile }>All</div>
                 <div className="hidden bg-gradient-to-b from-sky-800 to-sky-600 w-screen relative -left-5 pl-7" ref={ allMobile }>
                     <AllNavbar hideMovNavbar={ hideMovNavbar } classNames="pt-3 pb-6" />
                 </div>
@@ -59,7 +59,7 @@ export const MobileNavbar = () => {
 
 
             <div>
-                <span onClick ={ toggleSearchMobile } className="font-semibold">Search</span>
+                <div onClick ={ toggleSearchMobile } className="font-semibold">Search</div>
                 <div ref={ searchMobile } className="hidden">
                     <SearchNavbar hideMovNavbar={ hideMovNavbar } classNames ="relative -left-5 pl- w-screen bg-gradient-to-b from-sky-800 to-sky-600 px-2 py-1 rounded-sm" />
                 </div>

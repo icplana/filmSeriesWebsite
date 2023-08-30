@@ -114,7 +114,7 @@ export const Search = ({ type, searchParam }) => {
                 <h2 className="text-5xl mb-3 ml-5 ">Search</h2>
                 <SearchNavbar setData= { setData } classNames="hidden sm:flex gap-1 justify-center mb-3" />
 
-                <form onSubmit={ onSubmit } className="mb-3 mx-5 text-primary">
+                <form onSubmit={ onSubmit } className="mb-3 mx-5 text-white">
                     <h4 className="text-xl font-light mb-2">Search { type.plural }</h4>
 
 
@@ -201,7 +201,7 @@ export const Search = ({ type, searchParam }) => {
 
                     <input type="submit" value="Buscar" className="rounded-md px-2 py-1 mt-2 bg-softRed font-semibold"/>
 
-                    <p className="text-center italic text-md mx-1 text-primaryWhite"><span className="text-xl ">*</span>Each comic, character, creator, event, serie or story has a unic numeric ID, you can get it searching them in search section or looking for it in all section (not recomended since there are too many results). We strongly recomend you to use favorites to make it easier to save the IDs of your favorite content.</p>    
+                    <p className="text-center italic text-md mx-1 text-white2"><span className="text-xl ">*</span>Each comic, character, creator, event, serie or story has a unic numeric ID, you can get it searching them in search section or looking for it in all section (not recomended since there are too many results). We strongly recomend you to use favorites to make it easier to save the IDs of your favorite content.</p>    
                 </form>
     
                 <div className="text-primary">
