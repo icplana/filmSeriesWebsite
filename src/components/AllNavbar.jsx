@@ -12,10 +12,10 @@ export const AllNavbar = ({ classNames = '', hideMovNavbar = () => {} }) => {
 
   return (
     <div>
-        <ul className={ classNames }>
+        <ul className={ classNames + ' ' + 'sm:pt-3 sm:ps-4 sm:pr-5' }>
             {
             searchTypes.map( type => (
-                <li key={ type.singular }>
+                <li className="sm:mb-2" key={ type.singular }>
                     <NavLink                 
                         to={"/all/" + type.plural} 
                         className={({isActive})=> isActive ?'font-semibold' :'' + "hover:underline"}
