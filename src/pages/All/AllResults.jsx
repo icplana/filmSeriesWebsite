@@ -58,7 +58,7 @@ export const AllResults = ({ type }) => {
                         <>
                             <h2 className="text-5xl mb-3 ml-5" >All</h2>
                             <AllNavbar classNames="gap-1 justify-center mb-3 hidden sm:flex" />
-                            <div className="mb-10 text-primary">
+                            <div className="mb-10 text-white">
                                 <p 
                                     className="italic mb-3 ml-5" 
                                 >
