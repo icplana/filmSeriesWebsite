@@ -32,7 +32,7 @@ export const CreatorPreview = ({ creator }) => {
 
 
   return (
-    <div className="bg-white sm:w-1/2 md:w-1/3 lg:w-1/4 rounded-md" >
+    <div className="bg-white sm:w-1/2 md:w-1/3 lg:w-1/4 rounded-md text-primary" >
         <img className="w-full aspect-square rounded-t-md" src={ creator.thumbnail.path + '.' + creator.thumbnail.extension } alt={ creator.fullName + "image" } />
         <div className="m-2">
           <h2 className="font-bold">{ creator.fullName }</h2>  

@@ -32,7 +32,7 @@ export const StoryPreview = ({ story }) => {
 
 
   return (
-    <div className="bg-white w-10/12 sm:w-5/12 xl:w-3/12 rounded-md p-2" >
+    <div className="bg-white w-10/12 sm:w-5/12 xl:w-3/12 rounded-md p-2 text-primary" >
 
         <h2 className="font-bold">{ story.title }</h2>  
 

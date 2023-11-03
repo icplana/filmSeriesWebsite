@@ -42,7 +42,7 @@ export const ShowPerPage = ({ maxOffset }) => {
         <p className="mr-2 sm:text-lg">
           Show per page:
         </p>
-        <select value={ limit } className="rounded" ref={ showPerPage } onChange={() => { setLoading(true); setLimit( showPerPage.current.value ) }} >
+        <select value={ limit } className="rounded text-primary" ref={ showPerPage } onChange={() => { setLoading(true); setLimit( showPerPage.current.value ) }} >
             <option value="20">20</option>
             <option value="40">40</option>
             <option value="60">60</option>
@@ -53,7 +53,7 @@ export const ShowPerPage = ({ maxOffset }) => {
       <div className="flex gap-1 sm:gap-4">
         <button
           ref={ prevButton }
-          className="px-2 py-1 bg-white rounded-md" 
+          className="px-2 py-1 bg-white rounded-md text-primary " 
           onClick={ () => { 
             setLoading(true);
             offset > limit 
@@ -65,7 +65,7 @@ export const ShowPerPage = ({ maxOffset }) => {
         >Anterior</button>
         <button
           ref={ nextButton }
-          className="px-2 py-1 bg-white rounded-md" 
+          className="px-2 py-1 bg-white rounded-md text-primary" 
           onClick={ () => { 
             setLoading(true); 
             setOffset( Number(Number(offset) + Number(limit) ))  

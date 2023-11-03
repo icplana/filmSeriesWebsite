@@ -33,7 +33,7 @@ export const SeriePreview = ({ serie }) => {
 
 
     return (
-      <div className="bg-white sm:w-1/2 md:w-1/3 lg:w-1/4 rounded-md">
+      <div className="bg-white sm:w-1/2 md:w-1/3 lg:w-1/4 rounded-md text-primary">
          
         <img className="w-full rounded-t-md aspect-square" src={ serie.thumbnail.path + '.' + serie.thumbnail.extension } alt="" />
         <div className="m-2">     
